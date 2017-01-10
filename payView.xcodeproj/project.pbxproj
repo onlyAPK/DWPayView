@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		85387FD01E1F73AB000CFCA0 /* SuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85387FCF1E1F73AB000CFCA0 /* SuccessView.m */; };
+		8540DAC81E2390430011A1AD /* DWEnterPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAC71E2390430011A1AD /* DWEnterPasswordView.m */; };
+		8540DACB1E2390560011A1AD /* DWPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DACA1E2390560011A1AD /* DWPayView.m */; };
+		8540DACE1E2390E50011A1AD /* DWBankListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DACD1E2390E50011A1AD /* DWBankListView.m */; };
+		8540DAD11E2478810011A1AD /* DWLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAD01E2478810011A1AD /* DWLineView.m */; };
+		8540DAD71E247E7B0011A1AD /* DWSizeDefined.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAD61E247E7B0011A1AD /* DWSizeDefined.m */; };
+		8540DADA1E2480480011A1AD /* DWCrossView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAD91E2480480011A1AD /* DWCrossView.m */; };
+		8540DAE01E2486D20011A1AD /* DWArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DADF1E2486D20011A1AD /* DWArrowView.m */; };
+		8540DAEC1E24B54A0011A1AD /* DWManageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAEB1E24B54A0011A1AD /* DWManageData.m */; };
+		8540DAEF1E24D2E20011A1AD /* DWStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAEE1E24D2E20011A1AD /* DWStateView.m */; };
+		8540DAF21E24E8C30011A1AD /* DWNumberKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAF01E24E8C30011A1AD /* DWNumberKeyboardView.m */; };
+		85FA852A1DB9F0BC00799676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA85291DB9F0BC00799676 /* main.m */; };
+		85FA852D1DB9F0BC00799676 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA852C1DB9F0BC00799676 /* AppDelegate.m */; };
+		85FA85301DB9F0BC00799676 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA852F1DB9F0BC00799676 /* ViewController.m */; };
+		85FA85331DB9F0BC00799676 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FA85311DB9F0BC00799676 /* Main.storyboard */; };
+		85FA85351DB9F0BC00799676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85FA85341DB9F0BC00799676 /* Assets.xcassets */; };
+		85FA85381DB9F0BC00799676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FA85361DB9F0BC00799676 /* LaunchScreen.storyboard */; };
+		85FA85431DB9F0BC00799676 /* payViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA85421DB9F0BC00799676 /* payViewTests.m */; };
+		85FA854E1DB9F0BC00799676 /* payViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA854D1DB9F0BC00799676 /* payViewUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85FA853F1DB9F0BC00799676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85FA851D1DB9F0BC00799676 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85FA85241DB9F0BC00799676;
+			remoteInfo = payView;
+		};
+		85FA854A1DB9F0BC00799676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85FA851D1DB9F0BC00799676 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85FA85241DB9F0BC00799676;
+			remoteInfo = payView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		85387FCE1E1F73AB000CFCA0 /* SuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessView.h; sourceTree = "<group>"; };
+		85387FCF1E1F73AB000CFCA0 /* SuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessView.m; sourceTree = "<group>"; };
+		8540DAC61E2390430011A1AD /* DWEnterPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWEnterPasswordView.h; sourceTree = "<group>"; };
+		8540DAC71E2390430011A1AD /* DWEnterPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWEnterPasswordView.m; sourceTree = "<group>"; };
+		8540DAC91E2390560011A1AD /* DWPayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPayView.h; sourceTree = "<group>"; };
+		8540DACA1E2390560011A1AD /* DWPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWPayView.m; sourceTree = "<group>"; };
+		8540DACC1E2390E50011A1AD /* DWBankListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWBankListView.h; sourceTree = "<group>"; };
+		8540DACD1E2390E50011A1AD /* DWBankListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWBankListView.m; sourceTree = "<group>"; };
+		8540DACF1E2478810011A1AD /* DWLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLineView.h; sourceTree = "<group>"; };
+		8540DAD01E2478810011A1AD /* DWLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWLineView.m; sourceTree = "<group>"; };
+		8540DAD51E247E7B0011A1AD /* DWSizeDefined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWSizeDefined.h; sourceTree = "<group>"; };
+		8540DAD61E247E7B0011A1AD /* DWSizeDefined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWSizeDefined.m; sourceTree = "<group>"; };
+		8540DAD81E2480480011A1AD /* DWCrossView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWCrossView.h; sourceTree = "<group>"; };
+		8540DAD91E2480480011A1AD /* DWCrossView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWCrossView.m; sourceTree = "<group>"; };
+		8540DADE1E2486D20011A1AD /* DWArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWArrowView.h; sourceTree = "<group>"; };
+		8540DADF1E2486D20011A1AD /* DWArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWArrowView.m; sourceTree = "<group>"; };
+		8540DAEA1E24B54A0011A1AD /* DWManageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWManageData.h; sourceTree = "<group>"; };
+		8540DAEB1E24B54A0011A1AD /* DWManageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWManageData.m; sourceTree = "<group>"; };
+		8540DAED1E24D2E20011A1AD /* DWStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWStateView.h; sourceTree = "<group>"; };
+		8540DAEE1E24D2E20011A1AD /* DWStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWStateView.m; sourceTree = "<group>"; };
+		8540DAF01E24E8C30011A1AD /* DWNumberKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWNumberKeyboardView.m; sourceTree = "<group>"; };
+		8540DAF11E24E8C30011A1AD /* DWNumberKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWNumberKeyboardView.h; sourceTree = "<group>"; };
+		85FA85251DB9F0BC00799676 /* payView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = payView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85FA85291DB9F0BC00799676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		85FA852B1DB9F0BC00799676 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		85FA852C1DB9F0BC00799676 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		85FA852E1DB9F0BC00799676 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		85FA852F1DB9F0BC00799676 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		85FA85321DB9F0BC00799676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85FA85341DB9F0BC00799676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85FA85371DB9F0BC00799676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85FA85391DB9F0BC00799676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FA853E1DB9F0BC00799676 /* payViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = payViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85FA85421DB9F0BC00799676 /* payViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = payViewTests.m; sourceTree = "<group>"; };
+		85FA85441DB9F0BC00799676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FA85491DB9F0BC00799676 /* payViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = payViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85FA854D1DB9F0BC00799676 /* payViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = payViewUITests.m; sourceTree = "<group>"; };
+		85FA854F1DB9F0BC00799676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85FA85221DB9F0BC00799676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85FA853B1DB9F0BC00799676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85FA85461DB9F0BC00799676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85FA851C1DB9F0BC00799676 = {
+			isa = PBXGroup;
+			children = (
+				85FA85271DB9F0BC00799676 /* payView */,
+				85FA85411DB9F0BC00799676 /* payViewTests */,
+				85FA854C1DB9F0BC00799676 /* payViewUITests */,
+				85FA85261DB9F0BC00799676 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85FA85261DB9F0BC00799676 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85FA85251DB9F0BC00799676 /* payView.app */,
+				85FA853E1DB9F0BC00799676 /* payViewTests.xctest */,
+				85FA85491DB9F0BC00799676 /* payViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85FA85271DB9F0BC00799676 /* payView */ = {
+			isa = PBXGroup;
+			children = (
+				85FA852B1DB9F0BC00799676 /* AppDelegate.h */,
+				85FA852C1DB9F0BC00799676 /* AppDelegate.m */,
+				85FA852E1DB9F0BC00799676 /* ViewController.h */,
+				85FA852F1DB9F0BC00799676 /* ViewController.m */,
+				85387FCE1E1F73AB000CFCA0 /* SuccessView.h */,
+				85387FCF1E1F73AB000CFCA0 /* SuccessView.m */,
+				8540DAC91E2390560011A1AD /* DWPayView.h */,
+				8540DACA1E2390560011A1AD /* DWPayView.m */,
+				8540DAEA1E24B54A0011A1AD /* DWManageData.h */,
+				8540DAEB1E24B54A0011A1AD /* DWManageData.m */,
+				8540DAD51E247E7B0011A1AD /* DWSizeDefined.h */,
+				8540DAD61E247E7B0011A1AD /* DWSizeDefined.m */,
+				8540DAC61E2390430011A1AD /* DWEnterPasswordView.h */,
+				8540DAC71E2390430011A1AD /* DWEnterPasswordView.m */,
+				8540DACC1E2390E50011A1AD /* DWBankListView.h */,
+				8540DACD1E2390E50011A1AD /* DWBankListView.m */,
+				8540DAED1E24D2E20011A1AD /* DWStateView.h */,
+				8540DAEE1E24D2E20011A1AD /* DWStateView.m */,
+				8540DACF1E2478810011A1AD /* DWLineView.h */,
+				8540DAF01E24E8C30011A1AD /* DWNumberKeyboardView.m */,
+				8540DAF11E24E8C30011A1AD /* DWNumberKeyboardView.h */,
+				8540DAD01E2478810011A1AD /* DWLineView.m */,
+				8540DAD81E2480480011A1AD /* DWCrossView.h */,
+				8540DAD91E2480480011A1AD /* DWCrossView.m */,
+				8540DADE1E2486D20011A1AD /* DWArrowView.h */,
+				8540DADF1E2486D20011A1AD /* DWArrowView.m */,
+				85FA85311DB9F0BC00799676 /* Main.storyboard */,
+				85FA85341DB9F0BC00799676 /* Assets.xcassets */,
+				85FA85361DB9F0BC00799676 /* LaunchScreen.storyboard */,
+				85FA85391DB9F0BC00799676 /* Info.plist */,
+				85FA85281DB9F0BC00799676 /* Supporting Files */,
+			);
+			path = payView;
+			sourceTree = "<group>";
+		};
+		85FA85281DB9F0BC00799676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				85FA85291DB9F0BC00799676 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85FA85411DB9F0BC00799676 /* payViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				85FA85421DB9F0BC00799676 /* payViewTests.m */,
+				85FA85441DB9F0BC00799676 /* Info.plist */,
+			);
+			path = payViewTests;
+			sourceTree = "<group>";
+		};
+		85FA854C1DB9F0BC00799676 /* payViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				85FA854D1DB9F0BC00799676 /* payViewUITests.m */,
+				85FA854F1DB9F0BC00799676 /* Info.plist */,
+			);
+			path = payViewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85FA85241DB9F0BC00799676 /* payView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85FA85521DB9F0BC00799676 /* Build configuration list for PBXNativeTarget "payView" */;
+			buildPhases = (
+				85FA85211DB9F0BC00799676 /* Sources */,
+				85FA85221DB9F0BC00799676 /* Frameworks */,
+				85FA85231DB9F0BC00799676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = payView;
+			productName = payView;
+			productReference = 85FA85251DB9F0BC00799676 /* payView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		85FA853D1DB9F0BC00799676 /* payViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85FA85551DB9F0BC00799676 /* Build configuration list for PBXNativeTarget "payViewTests" */;
+			buildPhases = (
+				85FA853A1DB9F0BC00799676 /* Sources */,
+				85FA853B1DB9F0BC00799676 /* Frameworks */,
+				85FA853C1DB9F0BC00799676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85FA85401DB9F0BC00799676 /* PBXTargetDependency */,
+			);
+			name = payViewTests;
+			productName = payViewTests;
+			productReference = 85FA853E1DB9F0BC00799676 /* payViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		85FA85481DB9F0BC00799676 /* payViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85FA85581DB9F0BC00799676 /* Build configuration list for PBXNativeTarget "payViewUITests" */;
+			buildPhases = (
+				85FA85451DB9F0BC00799676 /* Sources */,
+				85FA85461DB9F0BC00799676 /* Frameworks */,
+				85FA85471DB9F0BC00799676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85FA854B1DB9F0BC00799676 /* PBXTargetDependency */,
+			);
+			name = payViewUITests;
+			productName = payViewUITests;
+			productReference = 85FA85491DB9F0BC00799676 /* payViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85FA851D1DB9F0BC00799676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "DA WENG";
+				TargetAttributes = {
+					85FA85241DB9F0BC00799676 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 34543L89J8;
+						ProvisioningStyle = Automatic;
+					};
+					85FA853D1DB9F0BC00799676 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 85FA85241DB9F0BC00799676;
+					};
+					85FA85481DB9F0BC00799676 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 85FA85241DB9F0BC00799676;
+					};
+				};
+			};
+			buildConfigurationList = 85FA85201DB9F0BC00799676 /* Build configuration list for PBXProject "payView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85FA851C1DB9F0BC00799676;
+			productRefGroup = 85FA85261DB9F0BC00799676 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85FA85241DB9F0BC00799676 /* payView */,
+				85FA853D1DB9F0BC00799676 /* payViewTests */,
+				85FA85481DB9F0BC00799676 /* payViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85FA85231DB9F0BC00799676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85FA85381DB9F0BC00799676 /* LaunchScreen.storyboard in Resources */,
+				85FA85351DB9F0BC00799676 /* Assets.xcassets in Resources */,
+				85FA85331DB9F0BC00799676 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85FA853C1DB9F0BC00799676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85FA85471DB9F0BC00799676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85FA85211DB9F0BC00799676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8540DAEC1E24B54A0011A1AD /* DWManageData.m in Sources */,
+				8540DAEF1E24D2E20011A1AD /* DWStateView.m in Sources */,
+				8540DADA1E2480480011A1AD /* DWCrossView.m in Sources */,
+				85FA85301DB9F0BC00799676 /* ViewController.m in Sources */,
+				8540DACE1E2390E50011A1AD /* DWBankListView.m in Sources */,
+				85FA852D1DB9F0BC00799676 /* AppDelegate.m in Sources */,
+				85FA852A1DB9F0BC00799676 /* main.m in Sources */,
+				85387FD01E1F73AB000CFCA0 /* SuccessView.m in Sources */,
+				8540DAC81E2390430011A1AD /* DWEnterPasswordView.m in Sources */,
+				8540DAF21E24E8C30011A1AD /* DWNumberKeyboardView.m in Sources */,
+				8540DAD11E2478810011A1AD /* DWLineView.m in Sources */,
+				8540DACB1E2390560011A1AD /* DWPayView.m in Sources */,
+				8540DAE01E2486D20011A1AD /* DWArrowView.m in Sources */,
+				8540DAD71E247E7B0011A1AD /* DWSizeDefined.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85FA853A1DB9F0BC00799676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85FA85431DB9F0BC00799676 /* payViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85FA85451DB9F0BC00799676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85FA854E1DB9F0BC00799676 /* payViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85FA85401DB9F0BC00799676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85FA85241DB9F0BC00799676 /* payView */;
+			targetProxy = 85FA853F1DB9F0BC00799676 /* PBXContainerItemProxy */;
+		};
+		85FA854B1DB9F0BC00799676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85FA85241DB9F0BC00799676 /* payView */;
+			targetProxy = 85FA854A1DB9F0BC00799676 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		85FA85311DB9F0BC00799676 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85FA85321DB9F0BC00799676 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85FA85361DB9F0BC00799676 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85FA85371DB9F0BC00799676 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85FA85501DB9F0BC00799676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85FA85511DB9F0BC00799676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85FA85531DB9F0BC00799676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 34543L89J8;
+				INFOPLIST_FILE = payView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = terrence.payView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		85FA85541DB9F0BC00799676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 34543L89J8;
+				INFOPLIST_FILE = payView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = terrence.payView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		85FA85561DB9F0BC00799676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = payViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.payViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/payView.app/payView";
+			};
+			name = Debug;
+		};
+		85FA85571DB9F0BC00799676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = payViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.payViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/payView.app/payView";
+			};
+			name = Release;
+		};
+		85FA85591DB9F0BC00799676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = payViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.payViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = payView;
+			};
+			name = Debug;
+		};
+		85FA855A1DB9F0BC00799676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = payViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.payViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = payView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85FA85201DB9F0BC00799676 /* Build configuration list for PBXProject "payView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85FA85501DB9F0BC00799676 /* Debug */,
+				85FA85511DB9F0BC00799676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85FA85521DB9F0BC00799676 /* Build configuration list for PBXNativeTarget "payView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85FA85531DB9F0BC00799676 /* Debug */,
+				85FA85541DB9F0BC00799676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85FA85551DB9F0BC00799676 /* Build configuration list for PBXNativeTarget "payViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85FA85561DB9F0BC00799676 /* Debug */,
+				85FA85571DB9F0BC00799676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85FA85581DB9F0BC00799676 /* Build configuration list for PBXNativeTarget "payViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85FA85591DB9F0BC00799676 /* Debug */,
+				85FA855A1DB9F0BC00799676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85FA851D1DB9F0BC00799676 /* Project object */;
+}
