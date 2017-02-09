@@ -9,13 +9,17 @@
 #import "DWEnterPasswordView.h"
 #import "DWSizeDefined.h"
 #import "DWNumberKeyboardView.h"
-#import "SuccessView.h"
 #import "DWManageData.h"
+#import "DWStateView.h"
 #define kDotSize CGSizeMake (10, 10) //密码点的大小
 #define kDotCount 6  //密码个数
 #define K_Field_Height 45  //每一个输入框的高度
 @interface DWEnterPasswordView ()<UITextFieldDelegate,SafeKeyBoardDelegate,ManageDataDelegate>
-
+{
+    DWStateView* stateView;
+    UILabel* stateLabel;
+    
+}
 
 @property (nonatomic, strong) NSMutableArray *dotArray; //用于存放黑色的点点
 @property(nonatomic,strong)DWNumberKeyboardView* numberKeyboard;
@@ -68,25 +72,6 @@
         [self.dotArray addObject:dotView];
     }
     
-    //    //生成分割线
-    //    for (int i = 0; i < kDotCount - 1; i++) {
-    //        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.textField.frame) + (i + 1) * width, CGRectGetMinY(self.textField.frame), 1, K_Field_Height)];
-    //        lineView.backgroundColor = [UIColor grayColor];
-    //        [self addSubview:lineView];
-    //    }
-    //
-    //    self.dotArray = [[NSMutableArray alloc] init];
-    //    //生成中间的点
-    //    for (int i = 0; i < kDotCount; i++) {
-    //        UIView *dotView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.textField.frame) + (width - kDotCount) / 2 + i * width, CGRectGetMinY(self.textField.frame) + (K_Field_Height - kDotSize.height) / 2, kDotSize.width, kDotSize.height)];
-    //        dotView.backgroundColor = [UIColor blackColor];
-    //        dotView.layer.cornerRadius = kDotSize.width / 2.0f;
-    //        dotView.clipsToBounds = YES;
-    //        dotView.hidden = YES; //先隐藏
-    //        [self addSubview:dotView];
-    //        //把创建的黑色点加入到数组中
-    //        [self.dotArray addObject:dotView];
-    //    }
 }
 
 
@@ -107,6 +92,7 @@
         _textField.layer.borderColor = [[UIColor grayColor] CGColor];
         _textField.layer.borderWidth = 1;
         [_textField addTarget:self action:@selector(inputtext:) forControlEvents:UIControlEventEditingChanged];
+        //         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];使用系统键盘
     }
     return _textField;
 }
@@ -124,67 +110,94 @@
         NSLog(@"输入完毕,%@",inputtext);
         DWManageData* manageData = [[DWManageData alloc]init];
         manageData.delegate = self;
-        [manageData payOrder];
+        [manageData payOrderWithPassword:inputtext];
+        
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"disableBackBtn" object:nil userInfo:nil];
         
         [self.numberKeyboard removeFromSuperview];
         [self.textField removeFromSuperview];
         [self.passWordView removeFromSuperview];
-        SuccessView* successView = [[SuccessView alloc]initWithFrame:CGRectMake(30, 30,self.frame.size.width-60,self.frame.size.height-60)];
-        [self addSubview:successView];
-        
+        stateView = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeDrawCircle withColor:[UIColor greenColor]];
+        [self addSubview:stateView];
+        stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(stateView.frame.origin.x, stateView.frame.origin.y+stateView.frame.size.height+10, stateView.frame.size.width, stateView.frame.size.height/4)];
+        stateLabel.text = @"正在支付";
+        stateLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:stateLabel];
     }
     
 }
 
--(void)passDict:(NSDictionary *)dict{
-    NSLog(@"1111%@",dict);
-    
+-(void)passData:(id)data{
+    NSLog(@"DWEnterPasswordView:%@",data);
+    NSDictionary* dict = [[NSDictionary alloc]init];
+    dict = data;
+    NSString* result = [dict objectForKey:@"result"];
+    if ([result isEqualToString:@"success"]) {
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTick withColor:[UIColor greenColor]];
+        [self addSubview:tickState];
+        [self performSelector:@selector(successDelayMethod) withObject:nil afterDelay:2.8f];
+    }else if ([result isEqualToString:@"fail"]){
+        
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCross withColor:[UIColor redColor]];
+        [self addSubview:tickState];
+        [self performSelector:@selector(failDelayMethod) withObject:nil afterDelay:2.8f];
+        
+    }
     
     
 }
 
+-(void)successDelayMethod{
+    stateLabel.text = @"支付成功";
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+    
+}
 
+-(void)failDelayMethod{
+    stateLabel.text = @"支付失败";
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+}
 
-
+-(void)postNotification{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"finishPay" object:nil userInfo:nil];
+}
 
 
 //使用系统自带键盘
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-//    NSLog(@"变化%@", string);
-//    if([string isEqualToString:@"\n"]) {
-//        //按回车关闭键盘
-//        [textField resignFirstResponder];
-//        return NO;
-//    } else if(string.length == 0) {
-//        //判断是不是删除键
-//        return YES;
-//    }
-//    else if(textField.text.length >= kDotCount) {
-//        //输入的字符个数大于6，则无法继续输入，返回NO表示禁止输入
-//        NSLog(@"输入的字符个数大于6，忽略输入");
-//        return NO;
-//    } else {
-//        return YES;
-//    }
-//}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSLog(@"变化%@", string);
+    if([string isEqualToString:@"\n"]) {
+        //按回车关闭键盘
+        [textField resignFirstResponder];
+        return NO;
+    } else if(string.length == 0) {
+        //判断是不是删除键
+        return YES;
+    }
+    else if(textField.text.length >= kDotCount) {
+        //输入的字符个数大于6，则无法继续输入，返回NO表示禁止输入
+        NSLog(@"输入的字符个数大于6，忽略输入");
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
-/**
- *  重置显示的点
- */
-//- (void)textFieldDidChange:(UITextField *)textField
-//{
-//    NSLog(@"%@", textField.text);
-//    for (UIView *dotView in self.dotArray) {
-//        dotView.hidden = YES;
-//    }
-//    for (int i = 0; i < textField.text.length; i++) {
-//        ((UIView *)[self.dotArray objectAtIndex:i]).hidden = NO;
-//    }
-//    if (textField.text.length == kDotCount) {
-//        NSLog(@"输入完毕");
-//    }
-//}
+
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    NSLog(@"%@", textField.text);
+    for (UIView *dotView in self.dotArray) {
+        dotView.hidden = YES;
+    }
+    for (int i = 0; i < textField.text.length; i++) {
+        ((UIView *)[self.dotArray objectAtIndex:i]).hidden = NO;
+    }
+    if (textField.text.length == kDotCount) {
+        NSLog(@"输入完毕");
+    }
+}
 
 
 @end

@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 @protocol ManageDataDelegate <NSObject>
 
--(void)passDict:(NSDictionary*)dict;
--(void)passArray:(NSArray*)array;
+-(void)passData:(id)data;
+
 @end
 @interface DWManageData : NSObject
 @property(nonatomic,weak)id<ManageDataDelegate>delegate;
--(void)payOrder;
+-(void)payOrderWithPassword:(NSString*)passWord;
 -(void)getBankList;
 -(void)getInitPayMethod;
+
+@property(nonatomic,strong)NSString* testPassword;
 @end

@@ -6,8 +6,15 @@
 //  Copyright © 2017年 DA WENG. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+typedef NS_ENUM(NSUInteger,DWStateDisplayType){
+    DWStateDisplayTypeDrawCircle = 0,
+    DWStateDisplayTypeAndroidLike,
+    DWStateDisplayTypeArcCircle,
+    DWStateDisplayTypeSuccessTick,
+    DWStateDisplayTypeFailCross,
+};
+@interface DWStateView : UIView
 
-@interface DWStateView : NSObject
-
+- (instancetype)initWithFrame:(CGRect)frame withType:(DWStateDisplayType)type withColor:(UIColor*)color;
 @end

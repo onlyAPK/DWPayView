@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85387FD01E1F73AB000CFCA0 /* SuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85387FCF1E1F73AB000CFCA0 /* SuccessView.m */; };
 		8540DAC81E2390430011A1AD /* DWEnterPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAC71E2390430011A1AD /* DWEnterPasswordView.m */; };
 		8540DACB1E2390560011A1AD /* DWPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DACA1E2390560011A1AD /* DWPayView.m */; };
 		8540DACE1E2390E50011A1AD /* DWBankListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DACD1E2390E50011A1AD /* DWBankListView.m */; };
@@ -16,8 +15,8 @@
 		8540DADA1E2480480011A1AD /* DWCrossView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAD91E2480480011A1AD /* DWCrossView.m */; };
 		8540DAE01E2486D20011A1AD /* DWArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DADF1E2486D20011A1AD /* DWArrowView.m */; };
 		8540DAEC1E24B54A0011A1AD /* DWManageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAEB1E24B54A0011A1AD /* DWManageData.m */; };
-		8540DAEF1E24D2E20011A1AD /* DWStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAEE1E24D2E20011A1AD /* DWStateView.m */; };
 		8540DAF21E24E8C30011A1AD /* DWNumberKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAF01E24E8C30011A1AD /* DWNumberKeyboardView.m */; };
+		8540DAF51E24F0400011A1AD /* DWStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8540DAF41E24F0400011A1AD /* DWStateView.m */; };
 		85FA852A1DB9F0BC00799676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA85291DB9F0BC00799676 /* main.m */; };
 		85FA852D1DB9F0BC00799676 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA852C1DB9F0BC00799676 /* AppDelegate.m */; };
 		85FA85301DB9F0BC00799676 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FA852F1DB9F0BC00799676 /* ViewController.m */; };
@@ -46,8 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		85387FCE1E1F73AB000CFCA0 /* SuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessView.h; sourceTree = "<group>"; };
-		85387FCF1E1F73AB000CFCA0 /* SuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessView.m; sourceTree = "<group>"; };
 		8540DAC61E2390430011A1AD /* DWEnterPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWEnterPasswordView.h; sourceTree = "<group>"; };
 		8540DAC71E2390430011A1AD /* DWEnterPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWEnterPasswordView.m; sourceTree = "<group>"; };
 		8540DAC91E2390560011A1AD /* DWPayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWPayView.h; sourceTree = "<group>"; };
@@ -64,10 +61,10 @@
 		8540DADF1E2486D20011A1AD /* DWArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWArrowView.m; sourceTree = "<group>"; };
 		8540DAEA1E24B54A0011A1AD /* DWManageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWManageData.h; sourceTree = "<group>"; };
 		8540DAEB1E24B54A0011A1AD /* DWManageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWManageData.m; sourceTree = "<group>"; };
-		8540DAED1E24D2E20011A1AD /* DWStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWStateView.h; sourceTree = "<group>"; };
-		8540DAEE1E24D2E20011A1AD /* DWStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWStateView.m; sourceTree = "<group>"; };
 		8540DAF01E24E8C30011A1AD /* DWNumberKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWNumberKeyboardView.m; sourceTree = "<group>"; };
 		8540DAF11E24E8C30011A1AD /* DWNumberKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWNumberKeyboardView.h; sourceTree = "<group>"; };
+		8540DAF31E24F0400011A1AD /* DWStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWStateView.h; sourceTree = "<group>"; };
+		8540DAF41E24F0400011A1AD /* DWStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWStateView.m; sourceTree = "<group>"; };
 		85FA85251DB9F0BC00799676 /* payView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = payView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FA85291DB9F0BC00799676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		85FA852B1DB9F0BC00799676 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 				85FA852C1DB9F0BC00799676 /* AppDelegate.m */,
 				85FA852E1DB9F0BC00799676 /* ViewController.h */,
 				85FA852F1DB9F0BC00799676 /* ViewController.m */,
-				85387FCE1E1F73AB000CFCA0 /* SuccessView.h */,
-				85387FCF1E1F73AB000CFCA0 /* SuccessView.m */,
 				8540DAC91E2390560011A1AD /* DWPayView.h */,
 				8540DACA1E2390560011A1AD /* DWPayView.m */,
 				8540DAEA1E24B54A0011A1AD /* DWManageData.h */,
@@ -148,13 +143,13 @@
 				8540DAD61E247E7B0011A1AD /* DWSizeDefined.m */,
 				8540DAC61E2390430011A1AD /* DWEnterPasswordView.h */,
 				8540DAC71E2390430011A1AD /* DWEnterPasswordView.m */,
+				8540DAF31E24F0400011A1AD /* DWStateView.h */,
+				8540DAF41E24F0400011A1AD /* DWStateView.m */,
 				8540DACC1E2390E50011A1AD /* DWBankListView.h */,
 				8540DACD1E2390E50011A1AD /* DWBankListView.m */,
-				8540DAED1E24D2E20011A1AD /* DWStateView.h */,
-				8540DAEE1E24D2E20011A1AD /* DWStateView.m */,
-				8540DACF1E2478810011A1AD /* DWLineView.h */,
 				8540DAF01E24E8C30011A1AD /* DWNumberKeyboardView.m */,
 				8540DAF11E24E8C30011A1AD /* DWNumberKeyboardView.h */,
+				8540DACF1E2478810011A1AD /* DWLineView.h */,
 				8540DAD01E2478810011A1AD /* DWLineView.m */,
 				8540DAD81E2480480011A1AD /* DWCrossView.h */,
 				8540DAD91E2480480011A1AD /* DWCrossView.m */,
@@ -330,13 +325,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8540DAEC1E24B54A0011A1AD /* DWManageData.m in Sources */,
-				8540DAEF1E24D2E20011A1AD /* DWStateView.m in Sources */,
+				8540DAF51E24F0400011A1AD /* DWStateView.m in Sources */,
 				8540DADA1E2480480011A1AD /* DWCrossView.m in Sources */,
 				85FA85301DB9F0BC00799676 /* ViewController.m in Sources */,
 				8540DACE1E2390E50011A1AD /* DWBankListView.m in Sources */,
 				85FA852D1DB9F0BC00799676 /* AppDelegate.m in Sources */,
 				85FA852A1DB9F0BC00799676 /* main.m in Sources */,
-				85387FD01E1F73AB000CFCA0 /* SuccessView.m in Sources */,
 				8540DAC81E2390430011A1AD /* DWEnterPasswordView.m in Sources */,
 				8540DAF21E24E8C30011A1AD /* DWNumberKeyboardView.m in Sources */,
 				8540DAD11E2478810011A1AD /* DWLineView.m in Sources */,

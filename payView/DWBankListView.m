@@ -65,8 +65,8 @@
     return cell;
 }
 
--(void)passArray:(NSArray *)array{
-    banklistArray = array;
+-(void)passData:(id)data{
+    banklistArray = data;
     [banklistTableView reloadData];
 
 }

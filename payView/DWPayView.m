@@ -27,10 +27,12 @@
     DWBankListView* bankListView;
     UILabel* secondTitle;
     NSDictionary* payMethodDict;
+    UIButton* backBtn;
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMissView) name:@"finishPay" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableBackBtn) name:@"disableBackBtn" object:nil];
         [self initContent];
     }
     return self;
@@ -93,7 +95,7 @@
         [scrollView addSubview:nextBtn];
         
         
-        UIButton* backBtn = [[UIButton alloc]initWithFrame:CGRectMake(dwDEVICESCREENWIDTH, 0, dwBUTTONWIDTH, dwBUTTONWIDTH)];
+        backBtn = [[UIButton alloc]initWithFrame:CGRectMake(dwDEVICESCREENWIDTH, 0, dwBUTTONWIDTH, dwBUTTONWIDTH)];
         DWArrowView* arrowView = [[DWArrowView alloc]initWithFrame:backBtn.frame];
         [scrollView addSubview:arrowView];
         UIImage * arrowimage = [self getImageFromView:arrowView];
@@ -186,7 +188,7 @@
     [UIView animateWithDuration:0.3 animations:^{
         
         self.alpha = 1.0;
-        
+        backBtn.enabled = YES;
         [scrollView setFrame:CGRectMake(0, dwDEVICESCREENHEIGHT - dwSCROLLVIEWHEIGHT, dwDEVICESCREENWIDTH, dwSCROLLVIEWHEIGHT)];
         
     } completion:nil];
@@ -204,7 +206,7 @@
                          [scrollView setFrame:CGRectMake(0, dwDEVICESCREENHEIGHT, dwDEVICESCREENWIDTH, dwSCROLLVIEWHEIGHT)];
                      }
                      completion:^(BOOL finished){
-                         
+                         [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
                          [self removeFromSuperview];
                          [scrollView removeFromSuperview];
                          
@@ -247,11 +249,20 @@
     
 }
 
--(void)passDict:(NSDictionary *)dict{
-    NSLog(@"1111%@",dict);
-
+-(void)passData:(id)data{
+    NSLog(@"payview%@",data);
+    NSDictionary* dict = [[NSDictionary alloc]init];
+    dict = data;
+    
     payMethodDict = dict;
     [payMethodTableView reloadData];
+}
+
+-(void)disableBackBtn{
+    
+    backBtn.enabled = NO;
+    backBtn.adjustsImageWhenDisabled = NO;
+    
 }
 
 @end
