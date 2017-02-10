@@ -75,6 +75,7 @@
             UIButton* btn = [numarray objectAtIndex:k];
             btn.backgroundColor = [UIColor groupTableViewBackgroundColor];
             [btn setTitle:@"删除" forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:16];
             [btn addTarget:self action:@selector(deleteBtnClick) forControlEvents:UIControlEventTouchUpInside];
         }
     }
@@ -109,7 +110,7 @@
         if ([_delegate respondsToSelector:@selector(inputtext:)]) {
             
             [_delegate inputtext:tempString];
-//            NSLog(@"%@",tempString);
+
         }
     }
     
@@ -123,7 +124,7 @@
         if ([_delegate respondsToSelector:@selector(inputtext:)]) {
             
             [_delegate inputtext:tempString];
-//            NSLog(@"%@",tempString);
+
             
         }
     }

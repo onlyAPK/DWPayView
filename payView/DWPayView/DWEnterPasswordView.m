@@ -21,7 +21,7 @@
     
 }
 
-@property (nonatomic, strong) NSMutableArray *dotArray; //用于存放黑色的点点
+@property (nonatomic,strong) NSMutableArray *dotArray; //用于存放黑色的点点
 @property(nonatomic,strong)DWNumberKeyboardView* numberKeyboard;
 @property(nonatomic,strong)UIView* passWordView;
 
@@ -29,6 +29,52 @@
 
 @implementation DWEnterPasswordView
 
+
+/*
+ 代理传值获取到的交易结果
+ 只判断success或者fail来显示动画。
+ */
+-(void)passData:(id)data{
+    NSLog(@"DWEnterPasswordView:%@",data);
+    NSDictionary* dict = [[NSDictionary alloc]init];
+    dict = data;
+    stateView.hidden = YES;
+    NSString* result = [dict objectForKey:@"result"];
+    if ([result isEqualToString:@"success"]) {
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTick withColor:[UIColor colorWithRed:53.0/255.0 green:203.0/255.0 blue:75.0/255.0 alpha:1]];
+        [self addSubview:tickState];
+        stateLabel.text = @"支付成功";
+        [self performSelector:@selector(successDelayMethod) withObject:nil afterDelay:2.8f];
+    }else if ([result isEqualToString:@"fail"]){
+        
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCross withColor:[UIColor colorWithRed:252.0/255.0 green:99.0/255.0 blue:94.0/255.0 alpha:1]];
+        [self addSubview:tickState];
+        stateLabel.text = @"支付失败";
+        [self performSelector:@selector(failDelayMethod) withObject:nil afterDelay:2.8f];
+        
+    }
+    
+}
+
+//动画显示完成后，等0.8秒整个页面消失
+-(void)successDelayMethod{
+//    stateLabel.text = @"支付成功";
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+    
+}
+
+//动画显示完成后，等0.8秒整个页面消失
+-(void)failDelayMethod{
+//    stateLabel.text = @"支付失败";
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+}
+
+//通知DWPayView，回收页面
+-(void)postNotification{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"finishPay" object:nil userInfo:nil];
+}
+
+#pragma mark - init
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         
@@ -74,9 +120,6 @@
     
 }
 
-
-#pragma mark - init
-
 - (UITextField *)textField
 {
     if (!_textField) {
@@ -108,10 +151,6 @@
     }
     if (self.textField.text.length == kDotCount) {
         
-        DWManageData* manageData = [[DWManageData alloc]init];
-        manageData.delegate = self;
-        [manageData payOrderWithPassword:inputtext];
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"disableBackBtn" object:nil userInfo:nil];//禁用返回键通知
         
         [self.numberKeyboard removeFromSuperview];
@@ -124,43 +163,13 @@
         stateLabel.text = @"正在支付";
         stateLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:stateLabel];
+        
+        
+        DWManageData* manageData = [[DWManageData alloc]init];
+        manageData.delegate = self;
+        [manageData payOrderWithPassword:inputtext withBankCardInfo:self.payBankInfo];
     }
     
-}
-
--(void)passData:(id)data{
-    NSLog(@"DWEnterPasswordView:%@",data);
-    NSDictionary* dict = [[NSDictionary alloc]init];
-    dict = data;
-    NSString* result = [dict objectForKey:@"result"];
-    if ([result isEqualToString:@"success"]) {
-        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTick withColor:[UIColor colorWithRed:53.0/255.0 green:203.0/255.0 blue:75.0/255.0 alpha:1]];
-        [self addSubview:tickState];
-        [self performSelector:@selector(successDelayMethod) withObject:nil afterDelay:2.8f];
-    }else if ([result isEqualToString:@"fail"]){
-        
-        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCross withColor:[UIColor colorWithRed:252.0/255.0 green:99.0/255.0 blue:94.0/255.0 alpha:1]];
-        [self addSubview:tickState];
-        [self performSelector:@selector(failDelayMethod) withObject:nil afterDelay:2.8f];
-        
-    }
-    
-    
-}
-
--(void)successDelayMethod{
-    stateLabel.text = @"支付成功";
-    [self performSelector:@selector(postNotification) withObject:nil afterDelay:1.0f];
-    
-}
-
--(void)failDelayMethod{
-    stateLabel.text = @"支付失败";
-    [self performSelector:@selector(postNotification) withObject:nil afterDelay:1.0f];
-}
-
--(void)postNotification{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"finishPay" object:nil userInfo:nil];
 }
 
 

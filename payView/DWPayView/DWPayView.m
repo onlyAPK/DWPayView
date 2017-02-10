@@ -30,27 +30,43 @@
     UIButton* backBtn;
     NSString* orderFeeAmount;
 }
-//- (instancetype)initWithFrame:(CGRect)frame {
-//    if (self = [super initWithFrame:frame]) {
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMissView) name:@"finishPay" object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableBackBtn) name:@"disableBackBtn" object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bankCardSelected:) name:@"bankCardSelected" object:nil];
-////        [self initContent];
-//    }
-//    return self;
-//}
+
+/*
+ 代理传值获取到的默认银行卡信息
+ 可根据服务器返回信息自行修改
+ 记得修改-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath中的payMethodDict字典key值，以便正确显示银行卡和姓名
+ */
+-(void)passData:(id)data{
+    NSLog(@"payview%@",data);
+    NSDictionary* dict = [[NSDictionary alloc]init];
+    dict = data;
+    
+    payMethodDict = dict;
+    [payMethodTableView reloadData];
+}
 
 
+/*
+ 回传选号的银行卡信息
+ 可将服务器报文直接转成字典传过来，也可以重新生成字典来传、
+ 记得修改-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath中的payMethodDict字典key值，以便正确显示银行卡和姓名
+ */
+-(void)bankCardSelected:(NSNotification *)notification{
+    [self backClick];
+    payMethodDict = [notification userInfo];
+    NSLog(@"%@",payMethodDict);
+    [payMethodTableView reloadData];
+    
+}
+
+
+#pragma mark 初始化界面
 -(instancetype)initWithorderFee:(NSString*)orderFee whomToPay:(NSString*)whomToPay{
     
     self=[super init];
     
     if (self) {
-        NSLog(@"%@",orderFee);
-        //        orderFeeAmount = orderFee;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMissView) name:@"finishPay" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableBackBtn) name:@"disableBackBtn" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bankCardSelected:) name:@"bankCardSelected" object:nil];
+        
         [self initContentWithOrderFee:orderFee whomToPay:whomToPay];
         
     }
@@ -61,14 +77,12 @@
 
 - (void)initContentWithOrderFee:(NSString*)orderFee whomToPay:(NSString*)whomToPay
 {
+    payMethodDict = [[NSDictionary alloc]init];
     
-    DWManageData* manageData = [[DWManageData alloc]init];
-    manageData.delegate = self;
-    [manageData getInitPayMethod];
+    [self getInitPayBankInfo];
+    
     self.frame = CGRectMake(0, 0, dwDEVICESCREENWIDTH, dwDEVICESCREENHEIGHT);
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    //    self.userInteractionEnabled = YES;
-    //    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disMissView)]];
     
     self.titleArray = @[@"支付方式",@"持卡人"];
     
@@ -85,7 +99,7 @@
         
         UIView* firstTitleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, dwDEVICESCREENWIDTH, dwBUTTONWIDTH)];
         UILabel* firstTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, firstTitleView.frame.size.width, firstTitleView.frame.size.height)];
-        firstTitle.text = @"鸡年大吉吧支付";
+        firstTitle.text = @"**支付";
         firstTitle.textAlignment = NSTextAlignmentCenter;
         [firstTitleView addSubview:firstTitle];
         [scrollView addSubview:firstTitleView];
@@ -154,6 +168,15 @@
     
 }
 
+#pragma mark 获取默认的支付方式
+-(void)getInitPayBankInfo{
+    
+    DWManageData* manageData = [[DWManageData alloc]init];
+    manageData.delegate = self;
+    [manageData getInitPayMethod];
+    
+}
+
 #pragma mark tableView
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -190,11 +213,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        [self bankList];
+        [self bankListClick];
     }
 }
 
-
+#pragma mark 弹出页面
 - (void)showInView:(UIView *)view
 {
     if (!view)
@@ -211,12 +234,18 @@
         
         self.alpha = 1.0;
         backBtn.enabled = YES;
+        [self getInitPayBankInfo];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMissView) name:@"finishPay" object:nil];//完成交易后，页面消失观察者
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableBackBtn) name:@"disableBackBtn" object:nil];//输入密码，使返回按钮失效观察者
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bankCardSelected:) name:@"bankCardSelected" object:nil];//选择完银行卡，返回传值观察者
+        
+        
         [scrollView setFrame:CGRectMake(0, dwDEVICESCREENHEIGHT - dwSCROLLVIEWHEIGHT, dwDEVICESCREENWIDTH, dwSCROLLVIEWHEIGHT)];
         
     } completion:nil];
 }
 
-//移除从上向底部弹下去的UIView（包含遮罩）
+#pragma mark 回收页面
 - (void)disMissView
 {
     [scrollView setFrame:CGRectMake(0, dwDEVICESCREENHEIGHT - dwSCROLLVIEWHEIGHT, dwDEVICESCREENWIDTH, dwSCROLLVIEWHEIGHT)];
@@ -231,28 +260,24 @@
                          [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
                          [self removeFromSuperview];
                          [scrollView removeFromSuperview];
+                         [[NSNotificationCenter defaultCenter] removeObserver:self name:@ "finishPay"  object:nil];//移除通知
+                         [[NSNotificationCenter defaultCenter] removeObserver:self name:@ "disableBackBtn"  object:nil];//移除通知
+                         [[NSNotificationCenter defaultCenter] removeObserver:self name:@ "bankCardSelected"  object:nil];//移除通知
                          
                      }];
     
 }
 
-- (UIImage *)getImageFromView:(UIView *)view {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, [UIScreen mainScreen].scale);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
-
-
+#pragma mark 按钮操作
 -(void)nextClick{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"bankInfoForPay" object:nil userInfo:payMethodDict];//将银行卡信息传到DWManageData中，方便最后提交交易使用
+    NSLog(@"lalalla%@",payMethodDict);
     CGFloat offsetX = scrollView.bounds.size.width;
     [scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     secondTitle.text = @"输入数字支付密码";
     enterPasswordView = [[DWEnterPasswordView alloc]initWithFrame:CGRectMake(dwDEVICESCREENWIDTH, dwBUTTONWIDTH, dwDEVICESCREENWIDTH, dwSCROLLVIEWHEIGHT)];
+    enterPasswordView.payBankInfo = payMethodDict;
     [scrollView addSubview:enterPasswordView];
-    
     
 }
 
@@ -263,7 +288,7 @@
     
 }
 
--(void)bankList{
+-(void)bankListClick{
     CGFloat offsetX = scrollView.bounds.size.width;
     [scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
     secondTitle.text = @"选择支付方式";
@@ -273,15 +298,6 @@
 }
 
 
-//代理传获取到的默认银行卡信息
--(void)passData:(id)data{
-    NSLog(@"payview%@",data);
-    NSDictionary* dict = [[NSDictionary alloc]init];
-    dict = data;
-    
-    payMethodDict = dict;
-    [payMethodTableView reloadData];
-}
 
 
 //输入完密码后禁用返回键
@@ -292,14 +308,6 @@
     
 }
 
-//回传选号的银行卡信息
--(void)bankCardSelected:(NSNotification *)notification{
-    [self backClick];
-    payMethodDict = [notification userInfo];
-    NSLog(@"%@",payMethodDict);
-    [payMethodTableView reloadData];
-    
-    
-}
+
 
 @end

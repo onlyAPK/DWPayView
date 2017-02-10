@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DWPayView.h"
+#import "DWManageData.h"
 #define UIColorFromRGBA(rgbValue, alphaValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0x00FF00) >> 8))/255.0 blue:((float)(rgbValue & 0x0000FF))/255.0 alpha:alphaValue]
 @interface ViewController ()
 {
@@ -24,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    DWManageData* llala = [[DWManageData alloc]init];
 
     payView = [[DWPayView alloc]initWithorderFee:@"200" whomToPay:@"大鸡"];
     
