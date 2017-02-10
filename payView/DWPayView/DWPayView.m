@@ -9,11 +9,11 @@
 #import "DWPayView.h"
 #import "DWEnterPasswordView.h"
 #import "DWBankListView.h"
-#import "DWLineView.h"
 #import "DWSizeDefined.h"
 #import "DWCrossView.h"
 #import "DWArrowView.h"
 #import "DWManageData.h"
+#import "DWViewConvertToImage.h"
 @interface DWPayView ()<UITableViewDelegate,UITableViewDataSource,ManageDataDelegate>
 @property(nonatomic,strong)NSArray* titleArray;
 @property(nonatomic,strong)DWManageData* manageData;
@@ -100,7 +100,7 @@
         UIButton* closeBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, dwBUTTONWIDTH, dwBUTTONWIDTH)];
         DWCrossView* crossView = [[DWCrossView alloc]initWithFrame:closeBtn.frame];
         [scrollView addSubview:crossView];
-        UIImage * crossimage = [self getImageFromView:crossView];
+        UIImage * crossimage = [[DWViewConvertToImage alloc]initWithView:crossView];
         [closeBtn setImage:crossimage forState:UIControlStateNormal];
         [closeBtn addTarget:self action:@selector(disMissView) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:closeBtn];
@@ -118,9 +118,8 @@
         backBtn = [[UIButton alloc]initWithFrame:CGRectMake(dwDEVICESCREENWIDTH, 0, dwBUTTONWIDTH, dwBUTTONWIDTH)];
         DWArrowView* arrowView = [[DWArrowView alloc]initWithFrame:backBtn.frame];
         [scrollView addSubview:arrowView];
-        UIImage * arrowimage = [self getImageFromView:arrowView];
+        UIImage * arrowimage = [[DWViewConvertToImage alloc]initWithView:arrowView];
         [backBtn setImage:arrowimage forState:UIControlStateNormal];
-        backBtn.backgroundColor = [UIColor blueColor];
         [backBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:backBtn];
         
@@ -134,7 +133,6 @@
         payToWhomLabel.textAlignment = NSTextAlignmentCenter;
         [scrollView addSubview:payToWhomLabel];
         
-        
         UILabel* moneyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, payToWhomLabel.frame.origin.y+payToWhomLabel.frame.size.height, dwDEVICESCREENWIDTH, payToWhomLabel.frame.size.height*2.3)];
         moneyLabel.text =orderFee;
         moneyLabel.font = [UIFont systemFontOfSize:36];
@@ -147,6 +145,10 @@
         payMethodTableView.delegate = self;
         payMethodTableView.bounces = NO;
         [scrollView addSubview:payMethodTableView];
+        
+        UILabel* lineLabe2 = [[UILabel alloc]initWithFrame:CGRectMake(15, payMethodTableView.frame.origin.y, dwDEVICESCREENWIDTH, 0.2)];
+        lineLabe2.backgroundColor = [UIColor lightGrayColor];
+        [scrollView addSubview:lineLabe2];
         
     }
     
