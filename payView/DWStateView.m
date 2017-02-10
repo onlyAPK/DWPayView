@@ -51,46 +51,23 @@
 
 - (void)drawCircle{
     
-    
-    shapeLayer.lineCap = kCALineCapRound;
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
     shapeLayer.path = path.CGPath;
+    shapeLayer.lineCap = kCALineCapRound;
     
+    CABasicAnimation* strokeEndAnimation = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
-    CABasicAnimation *pathAnima2 = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnima2.duration = 1.0f;
-    pathAnima2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnima2.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnima2.toValue = [NSNumber numberWithFloat:1.0f];
-    pathAnima2.removedOnCompletion = NO;
-    pathAnima2.fillMode =kCAFillModeBoth;
-    pathAnima2.delegate = self;
-    
-    
-    CABasicAnimation *pathAnima = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    pathAnima.duration = 1.0f;
-    pathAnima.beginTime = 1.00f;
-    pathAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnima.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    pathAnima.removedOnCompletion = NO;
-    pathAnima.fillMode =kCAFillModeBoth;
-    pathAnima.delegate = self;
-    
+    CABasicAnimation* strokeStartAnimation = [self strokeStartAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:1.0f duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.animations =@[pathAnima2,pathAnima];
+    group.animations =@[strokeEndAnimation,strokeStartAnimation];
     group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     group.fillMode = kCAFillModeBoth;
     group.duration = 1.9;
     group.repeatCount = MAXFLOAT;
     [shapeLayer addAnimation:group forKey:@"nil"];
     
-    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:2.0*M_PI];
-    rotationAnimation.repeatCount = MAXFLOAT;
-    rotationAnimation.duration = 2;
+    CABasicAnimation *rotationAnimation = [self rotationAnimationFromValue:[NSNumber numberWithFloat:0] toValue:[NSNumber numberWithFloat:2.0*M_PI] repeatCount:MAXFLOAT duration:2];
     [shapeLayer addAnimation:rotationAnimation forKey:nil];
     
 }
@@ -133,17 +110,10 @@
 
 -(void)arcCircle{
     
-    
-    
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2) radius:self.bounds.size.width/2 startAngle:0 endAngle:1.7*M_PI clockwise:YES];
-    
     shapeLayer.path = path.CGPath;
     
-    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:2.0*M_PI];
-    rotationAnimation.repeatCount = MAXFLOAT;
-    rotationAnimation.duration = 1.5;
+    CABasicAnimation *rotationAnimation = [self rotationAnimationFromValue:[NSNumber numberWithFloat:0] toValue:[NSNumber numberWithFloat:2.0*M_PI] repeatCount:MAXFLOAT duration:1.5];
     [shapeLayer addAnimation:rotationAnimation forKey:nil];
 }
 
@@ -154,40 +124,20 @@
     shapeLayer.path = path.CGPath;
     
     
-    CABasicAnimation *pathAnima2 = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnima2.duration = 0.8f;
-    pathAnima2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnima2.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnima2.toValue = [NSNumber numberWithFloat:1.0f];
-    pathAnima2.removedOnCompletion = NO;
-    pathAnima2.fillMode =kCAFillModeBoth;
-    pathAnima2.delegate = self;
+    CABasicAnimation* strokeEndAnimation = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
-    
-    CABasicAnimation *pathAnima = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    pathAnima.duration = 0.80f;
-    pathAnima.beginTime = 0.80f;
-    pathAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnima.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    pathAnima.removedOnCompletion = NO;
-    pathAnima.fillMode =kCAFillModeBoth;
-    pathAnima.delegate = self;
-    
-    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:2.0*M_PI];
-    rotationAnimation.repeatCount = 1;
-    rotationAnimation.duration = 0.8;
-    [shapeLayer addAnimation:rotationAnimation forKey:nil];
+    CABasicAnimation* strokeStartAnimation = [self strokeStartAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.animations =@[pathAnima2,pathAnima];
+    group.animations =@[strokeEndAnimation,strokeStartAnimation];
     group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     group.fillMode = kCAFillModeBoth;
     group.repeatCount = 1;
     group.duration = 0.8;
     [shapeLayer addAnimation:group forKey:@"nil"];
+    
+    CABasicAnimation *rotationAnimation = [self rotationAnimationFromValue:[NSNumber numberWithFloat:0] toValue:[NSNumber numberWithFloat:2.0*M_PI] repeatCount:1 duration:0.8];
+    [shapeLayer addAnimation:rotationAnimation forKey:nil];
     
     CAShapeLayer*tickshapeLayer = [CAShapeLayer layer];
     tickshapeLayer.frame = self.bounds;
@@ -204,15 +154,7 @@
     [tickPath addLineToPoint:CGPointMake(W-(W/6),H/4)];
     tickshapeLayer.path = tickPath.CGPath;
     
-    CABasicAnimation *tickAnima= [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    tickAnima.duration = 2.5f;
-    tickAnima.beginTime = 0.8f;
-    tickAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    tickAnima.fromValue = [NSNumber numberWithFloat:0.0f];
-    tickAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    tickAnima.removedOnCompletion = NO;
-    tickAnima.fillMode =kCAFillModeBoth;
-    tickAnima.delegate = self;
+    CABasicAnimation *tickAnima = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.8f duration:2.5f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CABasicAnimation* emtyAnima = [[CABasicAnimation alloc]init];
     emtyAnima.duration = 0.8f;
@@ -234,41 +176,21 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
     shapeLayer.path = path.CGPath;
     
+    CABasicAnimation *strokeEndAnima = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
-    CABasicAnimation *pathAnima2 = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    pathAnima2.duration = 0.8f;
-    pathAnima2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnima2.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnima2.toValue = [NSNumber numberWithFloat:1.0f];
-    pathAnima2.removedOnCompletion = NO;
-    pathAnima2.fillMode =kCAFillModeBoth;
-    pathAnima2.delegate = self;
-    
-    
-    CABasicAnimation *pathAnima = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    pathAnima.duration = 0.80f;
-    pathAnima.beginTime = 0.80f;
-    pathAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    pathAnima.fromValue = [NSNumber numberWithFloat:0.0f];
-    pathAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    pathAnima.removedOnCompletion = NO;
-    pathAnima.fillMode =kCAFillModeBoth;
-    pathAnima.delegate = self;
-    
-    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
-    rotationAnimation.toValue = [NSNumber numberWithFloat:2.0*M_PI];
-    rotationAnimation.repeatCount = 1;
-    rotationAnimation.duration = 0.8;
-    [shapeLayer addAnimation:rotationAnimation forKey:nil];
+    CABasicAnimation* strokeStartAnima = [self strokeStartAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.animations =@[pathAnima2,pathAnima];
+    group.animations =@[strokeEndAnima,strokeStartAnima];
     group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     group.fillMode = kCAFillModeBoth;
     group.repeatCount = 1;
     group.duration = 0.8;
     [shapeLayer addAnimation:group forKey:@"nil"];
+    
+    CABasicAnimation* rotationAnimation = [self rotationAnimationFromValue:[NSNumber numberWithFloat:0] toValue:[NSNumber numberWithFloat:2.0*M_PI] repeatCount:1 duration:0.8];
+    [shapeLayer addAnimation:rotationAnimation forKey:nil];
+    
     
     CAShapeLayer*tickshapeLayer = [CAShapeLayer layer];
     tickshapeLayer.frame = self.bounds;
@@ -288,15 +210,7 @@
     [tickPath appendPath:tickPath1];
     tickshapeLayer.path = tickPath.CGPath;
     
-    CABasicAnimation *tickAnima= [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    tickAnima.duration = 2.5f;
-    tickAnima.beginTime = 0.8f;
-    tickAnima.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    tickAnima.fromValue = [NSNumber numberWithFloat:0.0f];
-    tickAnima.toValue = [NSNumber numberWithFloat:1.0f];
-    tickAnima.removedOnCompletion = NO;
-    tickAnima.fillMode =kCAFillModeBoth;
-    tickAnima.delegate = self;
+    CABasicAnimation *tickAnima = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.8f duration:2.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CABasicAnimation* emtyAnima = [[CABasicAnimation alloc]init];
     emtyAnima.duration = 0.8f;
@@ -310,6 +224,48 @@
     [tickshapeLayer addAnimation:tickGroup forKey:nil];
     
     
+}
+-(CABasicAnimation*)strokeEndAnimationFromValue:(id)fromValue toValue:(id)toValue repeatCount:(float)repeatCount beginTime:(CFTimeInterval)beginTime duration:(CFTimeInterval)duration timingFunction:(CAMediaTimingFunction*)timingFunction removedOnCompletion:(BOOL)removedOnCompletion fillMode:(NSString*)fillMode delegate:(id <CAAnimationDelegate>)delegate {
+    
+    CABasicAnimation *strokeEndAnimation= [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    strokeEndAnimation.duration = duration;
+    strokeEndAnimation.beginTime = beginTime;
+    strokeEndAnimation.timingFunction = timingFunction;
+    strokeEndAnimation.fromValue = fromValue;
+    strokeEndAnimation.toValue = toValue;
+    strokeEndAnimation.removedOnCompletion = removedOnCompletion;
+    strokeEndAnimation.fillMode =fillMode;
+    strokeEndAnimation.delegate = delegate;
+    
+    return strokeEndAnimation;
+    
+}
+
+-(CABasicAnimation*)strokeStartAnimationFromValue:(id)fromValue toValue:(id)toValue repeatCount:(float)repeatCount beginTime:(CFTimeInterval)beginTime duration:(CFTimeInterval)duration timingFunction:(CAMediaTimingFunction*)timingFunction removedOnCompletion:(BOOL)removedOnCompletion fillMode:(NSString*)fillMode delegate:(id <CAAnimationDelegate>)delegate {
+    
+    CABasicAnimation *strokeStartAnimation= [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    strokeStartAnimation.duration = duration;
+    strokeStartAnimation.beginTime = beginTime;
+    strokeStartAnimation.timingFunction = timingFunction;
+    strokeStartAnimation.fromValue = fromValue;
+    strokeStartAnimation.toValue = toValue;
+    strokeStartAnimation.removedOnCompletion = removedOnCompletion;
+    strokeStartAnimation.fillMode =fillMode;
+    strokeStartAnimation.delegate = delegate;
+    
+    return strokeStartAnimation;
+    
+}
+
+
+-(CABasicAnimation*)rotationAnimationFromValue:(id)fromValue toValue:(id)toValue repeatCount:(float)repeatCount duration:(CFTimeInterval)duration{
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.fromValue = fromValue;
+    rotationAnimation.toValue = toValue;
+    rotationAnimation.repeatCount = repeatCount;
+    rotationAnimation.duration = duration;
+    
+    return rotationAnimation;
 }
 
 @end

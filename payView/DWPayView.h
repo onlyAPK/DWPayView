@@ -11,4 +11,6 @@
 @interface DWPayView : UIView
 - (void)showInView:(UIView *)view;
 - (void)disMissView;
+-(instancetype)initWithorderFee:(NSString*)orderFee whomToPay:(NSString*)whomToPay;
+
 @end

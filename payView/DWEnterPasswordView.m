@@ -91,7 +91,7 @@
         _textField.keyboardType = UIKeyboardTypeNumberPad;
         _textField.layer.borderColor = [[UIColor grayColor] CGColor];
         _textField.layer.borderWidth = 1;
-        [_textField addTarget:self action:@selector(inputtext:) forControlEvents:UIControlEventEditingChanged];
+        [_textField addTarget:self action:@selector(inputtext:) forControlEvents:UIControlEventEditingChanged];//使用自定义键盘
         //         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];使用系统键盘
     }
     return _textField;
@@ -107,17 +107,18 @@
         ((UIView *)[self.dotArray objectAtIndex:i]).hidden = NO;
     }
     if (self.textField.text.length == kDotCount) {
-        NSLog(@"输入完毕,%@",inputtext);
+        
         DWManageData* manageData = [[DWManageData alloc]init];
         manageData.delegate = self;
         [manageData payOrderWithPassword:inputtext];
         
-         [[NSNotificationCenter defaultCenter] postNotificationName:@"disableBackBtn" object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"disableBackBtn" object:nil userInfo:nil];//禁用返回键通知
         
         [self.numberKeyboard removeFromSuperview];
         [self.textField removeFromSuperview];
         [self.passWordView removeFromSuperview];
-        stateView = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeDrawCircle withColor:[UIColor greenColor]];
+        
+        stateView = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeDrawCircle withColor:[UIColor colorWithRed:53.0/255.0 green:203.0/255.0 blue:75.0/255.0 alpha:1]];
         [self addSubview:stateView];
         stateLabel = [[UILabel alloc]initWithFrame:CGRectMake(stateView.frame.origin.x, stateView.frame.origin.y+stateView.frame.size.height+10, stateView.frame.size.width, stateView.frame.size.height/4)];
         stateLabel.text = @"正在支付";
@@ -133,12 +134,12 @@
     dict = data;
     NSString* result = [dict objectForKey:@"result"];
     if ([result isEqualToString:@"success"]) {
-        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTick withColor:[UIColor greenColor]];
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTick withColor:[UIColor colorWithRed:53.0/255.0 green:203.0/255.0 blue:75.0/255.0 alpha:1]];
         [self addSubview:tickState];
         [self performSelector:@selector(successDelayMethod) withObject:nil afterDelay:2.8f];
     }else if ([result isEqualToString:@"fail"]){
         
-        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCross withColor:[UIColor redColor]];
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCross withColor:[UIColor colorWithRed:252.0/255.0 green:99.0/255.0 blue:94.0/255.0 alpha:1]];
         [self addSubview:tickState];
         [self performSelector:@selector(failDelayMethod) withObject:nil afterDelay:2.8f];
         
@@ -149,13 +150,13 @@
 
 -(void)successDelayMethod{
     stateLabel.text = @"支付成功";
-    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:1.0f];
     
 }
 
 -(void)failDelayMethod{
     stateLabel.text = @"支付失败";
-    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:1.0f];
 }
 
 -(void)postNotification{

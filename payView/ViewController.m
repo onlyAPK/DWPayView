@@ -25,14 +25,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    payView = [[DWPayView alloc]init];
-
-    [payView showInView:self.view];
-    UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 30)];
-    btn.backgroundColor = [UIColor blueColor];
+    payView = [[DWPayView alloc]initWithorderFee:@"200" whomToPay:@"大鸡"];
+    
+    UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(80,self.view.frame.size.height - 160, self.view.frame.size.width-160, 30)];
+    [btn setTitle:@"确认付款" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor colorWithRed:91.0/255.0 green:46.0/255.0 blue:123.0/255.0 alpha:1];
     [btn addTarget:self action:@selector(show) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
+    [self show];
 }
 
 -(void)show{

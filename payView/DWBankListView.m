@@ -60,15 +60,26 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     
-    cell.textLabel.text = [banklistArray objectAtIndex:[indexPath row]];
+    cell.textLabel.text = [[banklistArray objectAtIndex:[indexPath row]] objectForKey:@"bankCard"];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString* bankCardStr = [[banklistArray objectAtIndex:[indexPath row]] objectForKey:@"bankCard"];
+    NSString* name = [[banklistArray objectAtIndex:[indexPath row]] objectForKey:@"userName"];
+    NSMutableDictionary* bankcardDict = [[NSMutableDictionary alloc]init];
+    [bankcardDict setObject:bankCardStr forKey:@"bankCard"];
+    [bankcardDict setObject:name forKey:@"userName"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"bankCardSelected" object:nil userInfo:bankcardDict];
+    
 }
 
 -(void)passData:(id)data{
     banklistArray = data;
     [banklistTableView reloadData];
-
+    NSLog(@"banklist:%@",banklistArray);
 }
 
 @end

@@ -28,24 +28,44 @@
     UILabel* secondTitle;
     NSDictionary* payMethodDict;
     UIButton* backBtn;
+    NSString* orderFeeAmount;
 }
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+//- (instancetype)initWithFrame:(CGRect)frame {
+//    if (self = [super initWithFrame:frame]) {
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMissView) name:@"finishPay" object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableBackBtn) name:@"disableBackBtn" object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bankCardSelected:) name:@"bankCardSelected" object:nil];
+////        [self initContent];
+//    }
+//    return self;
+//}
+
+
+-(instancetype)initWithorderFee:(NSString*)orderFee whomToPay:(NSString*)whomToPay{
+    
+    self=[super init];
+    
+    if (self) {
+        NSLog(@"%@",orderFee);
+        //        orderFeeAmount = orderFee;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disMissView) name:@"finishPay" object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableBackBtn) name:@"disableBackBtn" object:nil];
-        [self initContent];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(bankCardSelected:) name:@"bankCardSelected" object:nil];
+        [self initContentWithOrderFee:orderFee whomToPay:whomToPay];
+        
     }
+    
     return self;
+    
 }
 
-- (void)initContent
+- (void)initContentWithOrderFee:(NSString*)orderFee whomToPay:(NSString*)whomToPay
 {
     
     DWManageData* manageData = [[DWManageData alloc]init];
     manageData.delegate = self;
     [manageData getInitPayMethod];
     self.frame = CGRectMake(0, 0, dwDEVICESCREENWIDTH, dwDEVICESCREENHEIGHT);
-    //alpha 0.0  白色   alpha 1 ：黑色   alpha 0～1 ：遮罩颜色，逐渐
     self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
     //    self.userInteractionEnabled = YES;
     //    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(disMissView)]];
@@ -89,7 +109,7 @@
         UIButton* nextBtn = [[UIButton alloc]initWithFrame:CGRectMake(dwMARGINTOLEFT, scrollView.frame.size.height-dwBUTTONWIDTH*1.1-dwMARGINTOLEFT*1.5, dwDEVICESCREENWIDTH-dwMARGINTOLEFT*2, dwBUTTONWIDTH*1.1)];
         nextBtn.layer.masksToBounds = YES;
         nextBtn.layer.cornerRadius = 5;
-        nextBtn.backgroundColor = [UIColor blueColor];
+        nextBtn.backgroundColor = [UIColor colorWithRed:71.0/255.0 green:37.0/255.0 blue:116.0/255.0 alpha:1];
         [nextBtn setTitle:@"确认付款" forState:UIControlStateNormal];
         [nextBtn addTarget:self action:@selector(nextClick) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:nextBtn];
@@ -104,20 +124,19 @@
         [backBtn addTarget:self action:@selector(backClick) forControlEvents:UIControlEventTouchUpInside];
         [scrollView addSubview:backBtn];
         
-        //        DWLineView* lineView = [[DWLineView alloc]initWithFrame:CGRectMake(0, closeBtn.frame.size.height, dwDEVICESCREENWIDTH, 0.5)];
-        //        [scrollView addSubview: lineView];
+        
         UILabel* lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, closeBtn.frame.size.height, dwDEVICESCREENWIDTH, 0.2)];
         lineLabel.backgroundColor = [UIColor lightGrayColor];
         [scrollView addSubview:lineLabel];
         
         UILabel* payToWhomLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, closeBtn.frame.size.height*2, dwDEVICESCREENWIDTH, closeBtn.frame.size.height/2)];
-        payToWhomLabel.text = @"向大喆棒棒糖支付";
+        payToWhomLabel.text = [NSString stringWithFormat:@"向%@支付",whomToPay];
         payToWhomLabel.textAlignment = NSTextAlignmentCenter;
         [scrollView addSubview:payToWhomLabel];
         
         
         UILabel* moneyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, payToWhomLabel.frame.origin.y+payToWhomLabel.frame.size.height, dwDEVICESCREENWIDTH, payToWhomLabel.frame.size.height*2.3)];
-        moneyLabel.text = @"$100";
+        moneyLabel.text =orderFee;
         moneyLabel.font = [UIFont systemFontOfSize:36];
         moneyLabel.textAlignment =NSTextAlignmentCenter;
         [scrollView addSubview:moneyLabel];
@@ -154,11 +173,12 @@
     
     if (indexPath.row == 0) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.detailTextLabel.text = [payMethodDict objectForKey:@"付款方式"];
+        
+        cell.detailTextLabel.text = [payMethodDict objectForKey:@"bankCard"];//根据获取数据修改
         
     }else if (indexPath.row == 1){
         
-        cell.detailTextLabel.text = [payMethodDict objectForKey:@"持卡人"];
+        cell.detailTextLabel.text = [payMethodDict objectForKey:@"userName"];//根据获取数据修改
         
     }
     
@@ -223,6 +243,7 @@
 }
 
 
+
 -(void)nextClick{
     CGFloat offsetX = scrollView.bounds.size.width;
     [scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
@@ -249,6 +270,8 @@
     
 }
 
+
+//代理传获取到的默认银行卡信息
 -(void)passData:(id)data{
     NSLog(@"payview%@",data);
     NSDictionary* dict = [[NSDictionary alloc]init];
@@ -258,10 +281,22 @@
     [payMethodTableView reloadData];
 }
 
+
+//输入完密码后禁用返回键
 -(void)disableBackBtn{
     
     backBtn.enabled = NO;
     backBtn.adjustsImageWhenDisabled = NO;
+    
+}
+
+//回传选号的银行卡信息
+-(void)bankCardSelected:(NSNotification *)notification{
+    [self backClick];
+    payMethodDict = [notification userInfo];
+    NSLog(@"%@",payMethodDict);
+    [payMethodTableView reloadData];
+    
     
 }
 
