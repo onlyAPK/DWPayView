@@ -14,8 +14,8 @@
 @end
 @interface DWManageData : NSObject
 @property(nonatomic,weak)id<ManageDataDelegate>delegate;
--(void)getBankList;
 -(void)getInitPayMethod;
+-(void)getBankList;
 -(void)payOrderWithPassword:(NSString*)passWord withBankCardInfo:(NSDictionary*)bankCardInfo;
 
 @end
