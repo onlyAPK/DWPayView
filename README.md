@@ -1,6 +1,7 @@
 # DWPayView
 支付界面封装
-使用scrollView来控制界面的滑动
+使用UISCrollView来控制界面。
+包含有随机数字键盘，交易等待动画等功能。可以单独提取出来使用
 
 
 
