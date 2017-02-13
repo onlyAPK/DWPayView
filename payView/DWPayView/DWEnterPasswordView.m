@@ -41,13 +41,13 @@
     stateView.hidden = YES;
     NSString* result = [dict objectForKey:@"result"];
     if ([result isEqualToString:@"success"]) {
-        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTick withColor:[UIColor colorWithRed:53.0/255.0 green:203.0/255.0 blue:75.0/255.0 alpha:1]];
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeSuccessTickWithFullCoolor withColor:[UIColor colorWithRed:53.0/255.0 green:203.0/255.0 blue:75.0/255.0 alpha:1]];
         [self addSubview:tickState];
         stateLabel.text = @"支付成功";
         [self performSelector:@selector(successDelayMethod) withObject:nil afterDelay:2.8f];
     }else if ([result isEqualToString:@"fail"]){
         
-        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCross withColor:[UIColor colorWithRed:252.0/255.0 green:99.0/255.0 blue:94.0/255.0 alpha:1]];
+        DWStateView* tickState = [[DWStateView alloc]initWithFrame:CGRectMake(self.frame.size.width*3/8, self.frame.size.width/4,self.frame.size.width/4,self.frame.size.width/4) withType:DWStateDisplayTypeFailCrossWithFullCoolor withColor:[UIColor colorWithRed:252.0/255.0 green:99.0/255.0 blue:94.0/255.0 alpha:1]];
         [self addSubview:tickState];
         stateLabel.text = @"支付失败";
         [self performSelector:@selector(failDelayMethod) withObject:nil afterDelay:2.8f];
@@ -56,17 +56,17 @@
     
 }
 
-//动画显示完成后，等0.8秒整个页面消失
+//动画显示完成后，等x秒整个页面消失
 -(void)successDelayMethod{
 //    stateLabel.text = @"支付成功";
-    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:1.5f];
     
 }
 
-//动画显示完成后，等0.8秒整个页面消失
+//动画显示完成后，等x秒整个页面消失
 -(void)failDelayMethod{
 //    stateLabel.text = @"支付失败";
-    [self performSelector:@selector(postNotification) withObject:nil afterDelay:0.8f];
+    [self performSelector:@selector(postNotification) withObject:nil afterDelay:1.5f];
 }
 
 //通知DWPayView，回收页面

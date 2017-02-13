@@ -42,6 +42,12 @@
         }else if (type == DWStateDisplayTypeFailCross){
             
             [self failCrossWithColor:color];
+        }else if (type == DWStateDisplayTypeSuccessTickWithFullCoolor){
+            
+            [self successTickWithFullColor:color];
+        }else if (type == DWStateDisplayTypeFailCrossWithFullCoolor){
+            
+            [self failCrossWithFullColor:color];
         }
     }
     
@@ -55,9 +61,9 @@
     shapeLayer.path = path.CGPath;
     shapeLayer.lineCap = kCALineCapRound;
     
-    CABasicAnimation* strokeEndAnimation = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation* strokeEndAnimation =[self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
-    CABasicAnimation* strokeStartAnimation = [self strokeStartAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:1.0f duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation* strokeStartAnimation = [self basicAnimationWithKeyPath:@"strokeStart" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:1.0f duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     group.animations =@[strokeEndAnimation,strokeStartAnimation];
@@ -124,9 +130,9 @@
     shapeLayer.path = path.CGPath;
     
     
-    CABasicAnimation* strokeEndAnimation = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation* strokeEndAnimation = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
-    CABasicAnimation* strokeStartAnimation = [self strokeStartAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation* strokeStartAnimation = [self basicAnimationWithKeyPath:@"strokeStart" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     group.animations =@[strokeEndAnimation,strokeStartAnimation];
@@ -154,7 +160,7 @@
     [tickPath addLineToPoint:CGPointMake(W-(W/6),H/4)];
     tickshapeLayer.path = tickPath.CGPath;
     
-    CABasicAnimation *tickAnima = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.8f duration:2.5f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation *tickAnima = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.8f duration:2.5f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CABasicAnimation* emtyAnima = [[CABasicAnimation alloc]init];
     emtyAnima.duration = 0.8f;
@@ -176,9 +182,9 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
     shapeLayer.path = path.CGPath;
     
-    CABasicAnimation *strokeEndAnima = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation *strokeEndAnima = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
-    CABasicAnimation* strokeStartAnima = [self strokeStartAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation* strokeStartAnima = [self basicAnimationWithKeyPath:@"strokeStart" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     group.animations =@[strokeEndAnima,strokeStartAnima];
@@ -192,25 +198,25 @@
     [shapeLayer addAnimation:rotationAnimation forKey:nil];
     
     
-    CAShapeLayer*tickshapeLayer = [CAShapeLayer layer];
-    tickshapeLayer.frame = self.bounds;
-    tickshapeLayer.fillColor = [UIColor clearColor].CGColor;
-    tickshapeLayer.lineWidth = 3;
-    tickshapeLayer.strokeColor = color.CGColor;
-    [self.layer addSublayer:tickshapeLayer];
+    CAShapeLayer*crossShapeLayer = [CAShapeLayer layer];
+    crossShapeLayer.frame = self.bounds;
+    crossShapeLayer.fillColor = [UIColor clearColor].CGColor;
+    crossShapeLayer.lineWidth = 3;
+    crossShapeLayer.strokeColor = color.CGColor;
+    [self.layer addSublayer:crossShapeLayer];
     
     CGFloat W = self.bounds.size.width ;
     CGFloat H = self.bounds.size.height;
-    UIBezierPath *tickPath  = [UIBezierPath bezierPath];
-    [tickPath moveToPoint:CGPointMake(W/5,H/5)];
-    [tickPath addLineToPoint:CGPointMake(4*W/5,4*H/5)];
-    UIBezierPath *tickPath1  = [UIBezierPath bezierPath];
-    [tickPath1 moveToPoint:CGPointMake(4*W/5,H/5)];
-    [tickPath1 addLineToPoint:CGPointMake(W/5,4*H/5)];
-    [tickPath appendPath:tickPath1];
-    tickshapeLayer.path = tickPath.CGPath;
+    UIBezierPath *crossPath  = [UIBezierPath bezierPath];
+    [crossPath moveToPoint:CGPointMake(W/5,H/5)];
+    [crossPath addLineToPoint:CGPointMake(4*W/5,4*H/5)];
+    UIBezierPath *crossPath1  = [UIBezierPath bezierPath];
+    [crossPath1 moveToPoint:CGPointMake(4*W/5,H/5)];
+    [crossPath1 addLineToPoint:CGPointMake(W/5,4*H/5)];
+    [crossPath appendPath:crossPath1];
+    crossShapeLayer.path = crossPath.CGPath;
     
-    CABasicAnimation *tickAnima = [self strokeEndAnimationFromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.8f duration:2.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    CABasicAnimation *tickAnima = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.8f duration:2.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
     
     CABasicAnimation* emtyAnima = [[CABasicAnimation alloc]init];
     emtyAnima.duration = 0.8f;
@@ -221,13 +227,166 @@
     tickGroup.repeatCount = 1;
     tickGroup.duration = 3.2;
     
-    [tickshapeLayer addAnimation:tickGroup forKey:nil];
+    [crossShapeLayer addAnimation:tickGroup forKey:nil];
     
     
 }
--(CABasicAnimation*)strokeEndAnimationFromValue:(id)fromValue toValue:(id)toValue repeatCount:(float)repeatCount beginTime:(CFTimeInterval)beginTime duration:(CFTimeInterval)duration timingFunction:(CAMediaTimingFunction*)timingFunction removedOnCompletion:(BOOL)removedOnCompletion fillMode:(NSString*)fillMode delegate:(id <CAAnimationDelegate>)delegate {
+
+-(void)successTickWithFullColor:(UIColor*)color{
     
-    CABasicAnimation *strokeEndAnimation= [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    shapeLayer.lineCap = kCALineCapRound;
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    shapeLayer.path = path.CGPath;
+    
+    
+    CABasicAnimation* strokeEndAnimation = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    
+    CABasicAnimation* strokeStartAnimation = [self basicAnimationWithKeyPath:@"strokeStart" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations =@[strokeEndAnimation,strokeStartAnimation];
+    group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    group.fillMode = kCAFillModeBoth;
+    group.repeatCount = 1;
+    group.duration = 0.8;
+    group.delegate = self;
+    group.removedOnCompletion = NO;
+    [shapeLayer addAnimation:group forKey:@"successTickGroup"];
+    
+    CABasicAnimation *rotationAnimation = [self rotationAnimationFromValue:[NSNumber numberWithFloat:0] toValue:[NSNumber numberWithFloat:2.0*M_PI] repeatCount:1 duration:0.8];
+    [shapeLayer addAnimation:rotationAnimation forKey:nil];
+    
+    
+}
+
+-(void)failCrossWithFullColor:(UIColor*)color{
+    
+    
+    shapeLayer.lineCap = kCALineCapRound;
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+    shapeLayer.path = path.CGPath;
+    
+    CABasicAnimation *strokeEndAnima = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:0.8f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    
+    CABasicAnimation* strokeStartAnima =  [self basicAnimationWithKeyPath:@"strokeStart" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0.80f duration:0.80f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations =@[strokeEndAnima,strokeStartAnima];
+    group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    group.fillMode = kCAFillModeBoth;
+    group.repeatCount = 1;
+    group.duration = 0.8;
+    group.delegate = self;
+    group.removedOnCompletion = NO;
+    [shapeLayer addAnimation:group forKey:@"failCrossGroup"];
+    
+    CABasicAnimation* rotationAnimation = [self rotationAnimationFromValue:[NSNumber numberWithFloat:0] toValue:[NSNumber numberWithFloat:2.0*M_PI] repeatCount:1 duration:0.8];
+    [shapeLayer addAnimation:rotationAnimation forKey:nil];
+    
+}
+
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag
+{
+    
+    
+    if ([theAnimation isEqual:[shapeLayer animationForKey:@"successTickGroup"]]) {
+        
+        shapeLayer.fillColor = shapeLayer.strokeColor;
+        
+        CAShapeLayer* whiteLayer = [[CAShapeLayer alloc]init];
+        whiteLayer.frame = self.bounds;
+        whiteLayer.fillColor = [UIColor whiteColor].CGColor;
+        whiteLayer.lineWidth = 3;
+        whiteLayer.strokeColor =shapeLayer.strokeColor;
+        [self.layer addSublayer:whiteLayer];
+        
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+        whiteLayer.path = path.CGPath;
+        
+        CABasicAnimation *scaleAnimation = [self basicAnimationWithKeyPath:@"transform.scale" fromValue:[NSNumber numberWithFloat:1.0] toValue:[NSNumber numberWithFloat:0.0] repeatCount:0 beginTime:0 duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeForwards delegate:self];
+        [scaleAnimation setValue:@"successTickAnimation" forKey:@"animationKey"];
+        [whiteLayer addAnimation:scaleAnimation forKey:nil];
+        
+    }else if ([[theAnimation valueForKey:@"animationKey"]isEqualToString:@"successTickAnimation"]){
+        
+        CAShapeLayer*tickshapeLayer = [CAShapeLayer layer];
+        tickshapeLayer.frame = self.bounds;
+        tickshapeLayer.fillColor = [UIColor clearColor].CGColor;
+        tickshapeLayer.lineWidth = 3;
+        tickshapeLayer.strokeColor = [UIColor whiteColor].CGColor;
+        [self.layer addSublayer:tickshapeLayer];
+        
+        CGFloat W = self.bounds.size.width ;
+        CGFloat H = self.bounds.size.height;
+        UIBezierPath *tickPath  = [UIBezierPath bezierPath];
+        [tickPath moveToPoint:CGPointMake(W/8,H/2)];
+        [tickPath addLineToPoint:CGPointMake(W/2.5,(H/2)+ H/4)];
+        [tickPath addLineToPoint:CGPointMake(W-(W/6),H/4)];
+        tickshapeLayer.path = tickPath.CGPath;
+        
+        CABasicAnimation *tickAnima = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:2.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+        
+        [tickshapeLayer addAnimation:tickAnima forKey:nil];
+        
+        
+    }else if ([theAnimation isEqual:[shapeLayer animationForKey:@"failCrossGroup"]]) {
+        
+        shapeLayer.fillColor = shapeLayer.strokeColor;
+        
+        CAShapeLayer* whiteLayer = [[CAShapeLayer alloc]init];
+        whiteLayer.frame = self.bounds;
+        whiteLayer.fillColor = [UIColor whiteColor].CGColor;
+        whiteLayer.lineWidth = 3;
+        whiteLayer.strokeColor = shapeLayer.strokeColor;
+        [self.layer addSublayer:whiteLayer];
+        
+        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:self.bounds];
+        whiteLayer.path = path.CGPath;
+        
+        CABasicAnimation *scaleAnimation = [self basicAnimationWithKeyPath:@"transform.scale" fromValue:[NSNumber numberWithFloat:1.0] toValue:[NSNumber numberWithFloat:0.0] repeatCount:0 beginTime:0 duration:1.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeForwards delegate:self];
+        [scaleAnimation setValue:@"failCrossScaleAnimation" forKey:@"animationKey"];
+        [whiteLayer addAnimation:scaleAnimation forKey:nil];
+        
+    }else if ([[theAnimation valueForKey:@"animationKey"]isEqualToString:@"failCrossScaleAnimation"]){
+        
+        CAShapeLayer*crossshapeLayer = [CAShapeLayer layer];
+        crossshapeLayer.frame = self.bounds;
+        crossshapeLayer.fillColor = [UIColor clearColor].CGColor;
+        crossshapeLayer.lineWidth = 3;
+        crossshapeLayer.strokeColor = [UIColor whiteColor].CGColor;
+        [self.layer addSublayer:crossshapeLayer];
+        
+        CGFloat W = self.bounds.size.width ;
+        CGFloat H = self.bounds.size.height;
+        UIBezierPath *crossPath  = [UIBezierPath bezierPath];
+        [crossPath moveToPoint:CGPointMake(W/5,H/5)];
+        [crossPath addLineToPoint:CGPointMake(4*W/5,4*H/5)];
+        UIBezierPath *crossPath1  = [UIBezierPath bezierPath];
+        [crossPath1 moveToPoint:CGPointMake(4*W/5,H/5)];
+        [crossPath1 addLineToPoint:CGPointMake(W/5,4*H/5)];
+        [crossPath appendPath:crossPath1];
+        crossshapeLayer.path = crossPath.CGPath;
+        
+        CABasicAnimation *tickAnima = [self basicAnimationWithKeyPath:@"strokeEnd" fromValue:[NSNumber numberWithFloat:0.0f] toValue:[NSNumber numberWithFloat:1.0f] repeatCount:1 beginTime:0 duration:2.0f timingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut] removedOnCompletion:NO fillMode:kCAFillModeBoth delegate:self];
+        
+        [crossshapeLayer addAnimation:tickAnima forKey:nil];
+        
+    }
+}
+
+
+-(CABasicAnimation*)basicAnimationWithKeyPath:(NSString*)keypath
+                                    fromValue:(id)fromValue
+                                      toValue:(id)toValue
+                                  repeatCount:(float)repeatCount
+                                    beginTime:(CFTimeInterval)beginTime
+                                     duration:(CFTimeInterval)duration
+                               timingFunction:(CAMediaTimingFunction*)timingFunction
+                          removedOnCompletion:(BOOL)removedOnCompletion
+                                     fillMode:(NSString*)fillMode
+                                     delegate:(id <CAAnimationDelegate>)delegate {
+    
+    CABasicAnimation *strokeEndAnimation= [CABasicAnimation animationWithKeyPath:keypath];
     strokeEndAnimation.duration = duration;
     strokeEndAnimation.beginTime = beginTime;
     strokeEndAnimation.timingFunction = timingFunction;
@@ -241,22 +400,6 @@
     
 }
 
--(CABasicAnimation*)strokeStartAnimationFromValue:(id)fromValue toValue:(id)toValue repeatCount:(float)repeatCount beginTime:(CFTimeInterval)beginTime duration:(CFTimeInterval)duration timingFunction:(CAMediaTimingFunction*)timingFunction removedOnCompletion:(BOOL)removedOnCompletion fillMode:(NSString*)fillMode delegate:(id <CAAnimationDelegate>)delegate {
-    
-    CABasicAnimation *strokeStartAnimation= [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    strokeStartAnimation.duration = duration;
-    strokeStartAnimation.beginTime = beginTime;
-    strokeStartAnimation.timingFunction = timingFunction;
-    strokeStartAnimation.fromValue = fromValue;
-    strokeStartAnimation.toValue = toValue;
-    strokeStartAnimation.removedOnCompletion = removedOnCompletion;
-    strokeStartAnimation.fillMode =fillMode;
-    strokeStartAnimation.delegate = delegate;
-    
-    return strokeStartAnimation;
-    
-}
-
 
 -(CABasicAnimation*)rotationAnimationFromValue:(id)fromValue toValue:(id)toValue repeatCount:(float)repeatCount duration:(CFTimeInterval)duration{
     CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -267,5 +410,4 @@
     
     return rotationAnimation;
 }
-
 @end
