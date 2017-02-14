@@ -99,7 +99,7 @@
         
         UIView* firstTitleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, dwDEVICESCREENWIDTH, dwBUTTONWIDTH)];
         UILabel* firstTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, firstTitleView.frame.size.width, firstTitleView.frame.size.height)];
-        firstTitle.text = @"**支付";
+        firstTitle.text = @"安全支付";
         firstTitle.textAlignment = NSTextAlignmentCenter;
         [firstTitleView addSubview:firstTitle];
         [scrollView addSubview:firstTitleView];

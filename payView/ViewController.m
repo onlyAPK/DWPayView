@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    payView = [[DWPayView alloc]initWithorderFee:@"200" whomToPay:@"大鸡"];
+    payView = [[DWPayView alloc]initWithorderFee:@"200" whomToPay:@"某某"];
     
     UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(80,self.view.frame.size.height - 160, self.view.frame.size.width-160, 30)];
     [btn setTitle:@"确认付款" forState:UIControlStateNormal];
