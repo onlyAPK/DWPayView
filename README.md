@@ -1,11 +1,11 @@
-# DWPayView
+# DWPayView 支付界面封装
 
-![图片一](https://raw.githubusercontent.com/onlyAPK/DWPayView/master/pictures/payView.gif
+![图片](https://raw.githubusercontent.com/onlyAPK/DWPayView/master/pictures/payView.gif
 )
 
-支付界面封装
-使用UISCrollView来控制界面。
-包含有随机数字键盘，交易等待动画等功能。可以单独提取出来使用
+
+#####使用UISCrollView来控制界面。
+#####包含有随机数字键盘，交易等待动画等功能。可以单独提取出来使用
 
 
 
