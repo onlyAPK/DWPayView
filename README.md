@@ -3,10 +3,10 @@
 ![图片](https://raw.githubusercontent.com/onlyAPK/DWPayView/master/pictures/payView.gif
 )
 
-
-使用UISCrollView来控制界面。<br>
+<br>
 包含有随机数字键盘，交易等待动画等功能。可以单独提取出来使用<br>
-
+<br>
+<br>
 
 
 ###用DWPayView显示界面，代码如下
