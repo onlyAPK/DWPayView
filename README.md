@@ -1,6 +1,6 @@
 # DWPayView
 
-![image](https://github.com/onlyAPK/DWPayView/blob/master/pictures/payView.gif）
+![image](https://github.com/onlyAPK/DWPayView/blob/master/pictures/success.png）
 
 支付界面封装
 使用UISCrollView来控制界面。
