@@ -4,7 +4,7 @@
 )
 
 
-包含有随机数字键盘，交易等待动画等功能。可以单独提取出来使用<br>
+包含有随机数字键盘，Loading动画等功能。可以单独提取出来使用<br>
 ![图片](https://raw.githubusercontent.com/onlyAPK/DWPayView/master/pictures/loading.gif
       )
 <br>
