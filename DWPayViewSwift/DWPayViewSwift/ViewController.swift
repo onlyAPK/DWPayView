@@ -22,9 +22,6 @@ class ViewController: UIViewController {
         btn.addTarget(self, action: #selector(showww), for: UIControlEvents.touchUpInside)
         self.view .addSubview(btn)
         
-        let lallal = DWSateView(frame: CGRect(x: 60, y: 160, width: 100, height: 100), color: UIColor.init(red: 53.0/255.0, green: 203.0/255.0, blue: 75.0/255.0, alpha: 1), type: DWStateDisplayType.successTickWithFullCoolor)
-        self.view.addSubview(lallal)
-        
     }
 
    

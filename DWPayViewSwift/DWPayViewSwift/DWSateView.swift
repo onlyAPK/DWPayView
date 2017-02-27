@@ -18,9 +18,9 @@ enum DWStateDisplayType {
     case failCrossWithFullCoolor//满色打叉
 }
 
-var shapeLayer = CAShapeLayer()
-
 class DWSateView: UIView ,CAAnimationDelegate{
+    
+    var shapeLayer = CAShapeLayer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

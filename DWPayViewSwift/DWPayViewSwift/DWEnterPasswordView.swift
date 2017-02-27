@@ -13,15 +13,15 @@ let DOTCOUNT = 6  //密码个数
 let FIELDHEIGHT = 45  //每一个输入框的高度
 
 class DWEnterPasswordView: UIView ,DWNumberKeyBoardDelegate,DWManageDataDelegate{
-//    var stateView = DWSateView()
+    var loadingView = DWSateView()
     var stateLabel = UILabel()
     var dotArray = NSMutableArray()
     let numberKeyboard = DWNumberKeyboardView()
     let passWordView = UIView()
     var payBankInfo = NSDictionary()
-    var stateView:DWSateView?
     
     override init(frame:CGRect){
+        
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.white
@@ -41,7 +41,7 @@ class DWEnterPasswordView: UIView ,DWNumberKeyBoardDelegate,DWManageDataDelegate
         
         var dict = NSDictionary()
         dict = data as! NSDictionary
-        self.stateView?.removeFromSuperview()
+        loadingView.removeFromSuperview()
         let result = dict.object(forKey: "result") as! String
         if result == "success" {
             let tickState = DWSateView(frame: CGRect(x: self.frame.size.width*3/8, y: self.frame.size.width/4, width: self.frame.size.width/4, height: self.frame.size.width/4), color: UIColor.init(red: 53.0/255.0, green: 203.0/255.0, blue: 75.0/255.0, alpha: 1), type: DWStateDisplayType.successTickWithFullCoolor)
@@ -102,8 +102,8 @@ class DWEnterPasswordView: UIView ,DWNumberKeyBoardDelegate,DWManageDataDelegate
             self.textField.removeFromSuperview()
             self.passWordView.removeFromSuperview()
             
-            self.stateView = DWSateView(frame: CGRect(x: self.frame.size.width*3/8, y: self.frame.size.width/4, width: self.frame.size.width/4, height: self.frame.size.width/4), color: UIColor.init(red: 53.0/255.0, green: 203.0/255.0, blue: 75.0/255.0, alpha: 1), type: DWStateDisplayType.drawCircle)
-            self.addSubview(self.stateView!)
+            loadingView = DWSateView(frame: CGRect(x: self.frame.size.width*3/8, y: self.frame.size.width/4, width: self.frame.size.width/4, height: self.frame.size.width/4), color: UIColor.init(red: 53.0/255.0, green: 203.0/255.0, blue: 75.0/255.0, alpha: 1), type: DWStateDisplayType.drawCircle)
+            self.addSubview(loadingView)
             
             self.stateLabel = UILabel(frame: CGRect(x: self.frame.size.width*3/8, y: self.frame.size.width/4+self.frame.size.width/4+10, width: self.frame.size.width/4, height: self.frame.size.width/16))
             stateLabel.text = "正在支付"
