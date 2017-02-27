@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		858636191E545D8B00FA8B76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858636181E545D8B00FA8B76 /* AppDelegate.swift */; };
+		8586361B1E545D8B00FA8B76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586361A1E545D8B00FA8B76 /* ViewController.swift */; };
+		8586361E1E545D8B00FA8B76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8586361C1E545D8B00FA8B76 /* Main.storyboard */; };
+		858636201E545D8B00FA8B76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8586361F1E545D8B00FA8B76 /* Assets.xcassets */; };
+		858636231E545D8B00FA8B76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 858636211E545D8B00FA8B76 /* LaunchScreen.storyboard */; };
+		8586362E1E545D8C00FA8B76 /* DWPayViewSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586362D1E545D8C00FA8B76 /* DWPayViewSwiftTests.swift */; };
+		858636391E545D8C00FA8B76 /* DWPayViewSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858636381E545D8C00FA8B76 /* DWPayViewSwiftUITests.swift */; };
+		858636471E545DB500FA8B76 /* DWSateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858636461E545DB500FA8B76 /* DWSateView.swift */; };
+		8586364E1E5ADF4300FA8B76 /* DWPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586364D1E5ADF4300FA8B76 /* DWPayView.swift */; };
+		858636501E5AE43C00FA8B76 /* DWSizeDefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8586364F1E5AE43C00FA8B76 /* DWSizeDefined.swift */; };
+		858636541E5AEA9A00FA8B76 /* DWCrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858636531E5AEA9A00FA8B76 /* DWCrossView.swift */; };
+		8586365A1E5AEECF00FA8B76 /* DWViewConvertToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858636591E5AEECF00FA8B76 /* DWViewConvertToImage.swift */; };
+		859783F01E5C226A004C9C6D /* DWArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859783EF1E5C226A004C9C6D /* DWArrowView.swift */; };
+		859784B51E6014B5004C9C6D /* DWBankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859784B41E6014B5004C9C6D /* DWBankListView.swift */; };
+		859784B71E6027B4004C9C6D /* DWEnterPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859784B61E6027B4004C9C6D /* DWEnterPasswordView.swift */; };
+		859784B91E60280B004C9C6D /* DWNumberKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859784B81E60280B004C9C6D /* DWNumberKeyboardView.swift */; };
+		859784C51E641148004C9C6D /* DWManageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859784C41E641148004C9C6D /* DWManageData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8586362A1E545D8C00FA8B76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8586360D1E545D8B00FA8B76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 858636141E545D8B00FA8B76;
+			remoteInfo = DWPayViewSwift;
+		};
+		858636351E545D8C00FA8B76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8586360D1E545D8B00FA8B76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 858636141E545D8B00FA8B76;
+			remoteInfo = DWPayViewSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		858636151E545D8B00FA8B76 /* DWPayViewSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DWPayViewSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		858636181E545D8B00FA8B76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8586361A1E545D8B00FA8B76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8586361D1E545D8B00FA8B76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8586361F1E545D8B00FA8B76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		858636221E545D8B00FA8B76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		858636241E545D8B00FA8B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858636291E545D8C00FA8B76 /* DWPayViewSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWPayViewSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8586362D1E545D8C00FA8B76 /* DWPayViewSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWPayViewSwiftTests.swift; sourceTree = "<group>"; };
+		8586362F1E545D8C00FA8B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858636341E545D8C00FA8B76 /* DWPayViewSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DWPayViewSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		858636381E545D8C00FA8B76 /* DWPayViewSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWPayViewSwiftUITests.swift; sourceTree = "<group>"; };
+		8586363A1E545D8C00FA8B76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		858636461E545DB500FA8B76 /* DWSateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWSateView.swift; sourceTree = "<group>"; };
+		8586364D1E5ADF4300FA8B76 /* DWPayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWPayView.swift; sourceTree = "<group>"; };
+		8586364F1E5AE43C00FA8B76 /* DWSizeDefined.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWSizeDefined.swift; sourceTree = "<group>"; };
+		858636531E5AEA9A00FA8B76 /* DWCrossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWCrossView.swift; sourceTree = "<group>"; };
+		858636591E5AEECF00FA8B76 /* DWViewConvertToImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWViewConvertToImage.swift; sourceTree = "<group>"; };
+		859783EF1E5C226A004C9C6D /* DWArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWArrowView.swift; sourceTree = "<group>"; };
+		859784B41E6014B5004C9C6D /* DWBankListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWBankListView.swift; sourceTree = "<group>"; };
+		859784B61E6027B4004C9C6D /* DWEnterPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWEnterPasswordView.swift; sourceTree = "<group>"; };
+		859784B81E60280B004C9C6D /* DWNumberKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWNumberKeyboardView.swift; sourceTree = "<group>"; };
+		859784C41E641148004C9C6D /* DWManageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWManageData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		858636121E545D8B00FA8B76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858636261E545D8C00FA8B76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858636311E545D8C00FA8B76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8586360C1E545D8B00FA8B76 = {
+			isa = PBXGroup;
+			children = (
+				858636171E545D8B00FA8B76 /* DWPayViewSwift */,
+				8586362C1E545D8C00FA8B76 /* DWPayViewSwiftTests */,
+				858636371E545D8C00FA8B76 /* DWPayViewSwiftUITests */,
+				858636161E545D8B00FA8B76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		858636161E545D8B00FA8B76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				858636151E545D8B00FA8B76 /* DWPayViewSwift.app */,
+				858636291E545D8C00FA8B76 /* DWPayViewSwiftTests.xctest */,
+				858636341E545D8C00FA8B76 /* DWPayViewSwiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		858636171E545D8B00FA8B76 /* DWPayViewSwift */ = {
+			isa = PBXGroup;
+			children = (
+				858636181E545D8B00FA8B76 /* AppDelegate.swift */,
+				8586361A1E545D8B00FA8B76 /* ViewController.swift */,
+				8586364D1E5ADF4300FA8B76 /* DWPayView.swift */,
+				859784B61E6027B4004C9C6D /* DWEnterPasswordView.swift */,
+				859784B81E60280B004C9C6D /* DWNumberKeyboardView.swift */,
+				859784C41E641148004C9C6D /* DWManageData.swift */,
+				859784B41E6014B5004C9C6D /* DWBankListView.swift */,
+				858636531E5AEA9A00FA8B76 /* DWCrossView.swift */,
+				859783EF1E5C226A004C9C6D /* DWArrowView.swift */,
+				8586364F1E5AE43C00FA8B76 /* DWSizeDefined.swift */,
+				858636461E545DB500FA8B76 /* DWSateView.swift */,
+				858636591E5AEECF00FA8B76 /* DWViewConvertToImage.swift */,
+				8586361C1E545D8B00FA8B76 /* Main.storyboard */,
+				8586361F1E545D8B00FA8B76 /* Assets.xcassets */,
+				858636211E545D8B00FA8B76 /* LaunchScreen.storyboard */,
+				858636241E545D8B00FA8B76 /* Info.plist */,
+			);
+			path = DWPayViewSwift;
+			sourceTree = "<group>";
+		};
+		8586362C1E545D8C00FA8B76 /* DWPayViewSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				8586362D1E545D8C00FA8B76 /* DWPayViewSwiftTests.swift */,
+				8586362F1E545D8C00FA8B76 /* Info.plist */,
+			);
+			path = DWPayViewSwiftTests;
+			sourceTree = "<group>";
+		};
+		858636371E545D8C00FA8B76 /* DWPayViewSwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				858636381E545D8C00FA8B76 /* DWPayViewSwiftUITests.swift */,
+				8586363A1E545D8C00FA8B76 /* Info.plist */,
+			);
+			path = DWPayViewSwiftUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		858636141E545D8B00FA8B76 /* DWPayViewSwift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8586363D1E545D8C00FA8B76 /* Build configuration list for PBXNativeTarget "DWPayViewSwift" */;
+			buildPhases = (
+				858636111E545D8B00FA8B76 /* Sources */,
+				858636121E545D8B00FA8B76 /* Frameworks */,
+				858636131E545D8B00FA8B76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DWPayViewSwift;
+			productName = DWPayViewSwift;
+			productReference = 858636151E545D8B00FA8B76 /* DWPayViewSwift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		858636281E545D8C00FA8B76 /* DWPayViewSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 858636401E545D8C00FA8B76 /* Build configuration list for PBXNativeTarget "DWPayViewSwiftTests" */;
+			buildPhases = (
+				858636251E545D8C00FA8B76 /* Sources */,
+				858636261E545D8C00FA8B76 /* Frameworks */,
+				858636271E545D8C00FA8B76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8586362B1E545D8C00FA8B76 /* PBXTargetDependency */,
+			);
+			name = DWPayViewSwiftTests;
+			productName = DWPayViewSwiftTests;
+			productReference = 858636291E545D8C00FA8B76 /* DWPayViewSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		858636331E545D8C00FA8B76 /* DWPayViewSwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 858636431E545D8C00FA8B76 /* Build configuration list for PBXNativeTarget "DWPayViewSwiftUITests" */;
+			buildPhases = (
+				858636301E545D8C00FA8B76 /* Sources */,
+				858636311E545D8C00FA8B76 /* Frameworks */,
+				858636321E545D8C00FA8B76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				858636361E545D8C00FA8B76 /* PBXTargetDependency */,
+			);
+			name = DWPayViewSwiftUITests;
+			productName = DWPayViewSwiftUITests;
+			productReference = 858636341E545D8C00FA8B76 /* DWPayViewSwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8586360D1E545D8B00FA8B76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "DA WENG";
+				TargetAttributes = {
+					858636141E545D8B00FA8B76 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FR698UFDK6;
+						ProvisioningStyle = Automatic;
+					};
+					858636281E545D8C00FA8B76 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 858636141E545D8B00FA8B76;
+					};
+					858636331E545D8C00FA8B76 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 858636141E545D8B00FA8B76;
+					};
+				};
+			};
+			buildConfigurationList = 858636101E545D8B00FA8B76 /* Build configuration list for PBXProject "DWPayViewSwift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8586360C1E545D8B00FA8B76;
+			productRefGroup = 858636161E545D8B00FA8B76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				858636141E545D8B00FA8B76 /* DWPayViewSwift */,
+				858636281E545D8C00FA8B76 /* DWPayViewSwiftTests */,
+				858636331E545D8C00FA8B76 /* DWPayViewSwiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		858636131E545D8B00FA8B76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				858636231E545D8B00FA8B76 /* LaunchScreen.storyboard in Resources */,
+				858636201E545D8B00FA8B76 /* Assets.xcassets in Resources */,
+				8586361E1E545D8B00FA8B76 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858636271E545D8C00FA8B76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858636321E545D8C00FA8B76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		858636111E545D8B00FA8B76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				858636541E5AEA9A00FA8B76 /* DWCrossView.swift in Sources */,
+				859784B51E6014B5004C9C6D /* DWBankListView.swift in Sources */,
+				859784B91E60280B004C9C6D /* DWNumberKeyboardView.swift in Sources */,
+				858636471E545DB500FA8B76 /* DWSateView.swift in Sources */,
+				8586361B1E545D8B00FA8B76 /* ViewController.swift in Sources */,
+				8586365A1E5AEECF00FA8B76 /* DWViewConvertToImage.swift in Sources */,
+				859784B71E6027B4004C9C6D /* DWEnterPasswordView.swift in Sources */,
+				859784C51E641148004C9C6D /* DWManageData.swift in Sources */,
+				858636501E5AE43C00FA8B76 /* DWSizeDefined.swift in Sources */,
+				859783F01E5C226A004C9C6D /* DWArrowView.swift in Sources */,
+				8586364E1E5ADF4300FA8B76 /* DWPayView.swift in Sources */,
+				858636191E545D8B00FA8B76 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858636251E545D8C00FA8B76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8586362E1E545D8C00FA8B76 /* DWPayViewSwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858636301E545D8C00FA8B76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				858636391E545D8C00FA8B76 /* DWPayViewSwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8586362B1E545D8C00FA8B76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 858636141E545D8B00FA8B76 /* DWPayViewSwift */;
+			targetProxy = 8586362A1E545D8C00FA8B76 /* PBXContainerItemProxy */;
+		};
+		858636361E545D8C00FA8B76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 858636141E545D8B00FA8B76 /* DWPayViewSwift */;
+			targetProxy = 858636351E545D8C00FA8B76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8586361C1E545D8B00FA8B76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8586361D1E545D8B00FA8B76 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		858636211E545D8B00FA8B76 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				858636221E545D8B00FA8B76 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8586363B1E545D8C00FA8B76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8586363C1E545D8C00FA8B76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8586363E1E545D8C00FA8B76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FR698UFDK6;
+				INFOPLIST_FILE = DWPayViewSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.DWPayViewSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8586363F1E545D8C00FA8B76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FR698UFDK6;
+				INFOPLIST_FILE = DWPayViewSwift/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.DWPayViewSwift;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		858636411E545D8C00FA8B76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DWPayViewSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.DWPayViewSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DWPayViewSwift.app/DWPayViewSwift";
+			};
+			name = Debug;
+		};
+		858636421E545D8C00FA8B76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DWPayViewSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.DWPayViewSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DWPayViewSwift.app/DWPayViewSwift";
+			};
+			name = Release;
+		};
+		858636441E545D8C00FA8B76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = DWPayViewSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.DWPayViewSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DWPayViewSwift;
+			};
+			name = Debug;
+		};
+		858636451E545D8C00FA8B76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = DWPayViewSwiftUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = IPS.DWPayViewSwiftUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DWPayViewSwift;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		858636101E545D8B00FA8B76 /* Build configuration list for PBXProject "DWPayViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8586363B1E545D8C00FA8B76 /* Debug */,
+				8586363C1E545D8C00FA8B76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8586363D1E545D8C00FA8B76 /* Build configuration list for PBXNativeTarget "DWPayViewSwift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8586363E1E545D8C00FA8B76 /* Debug */,
+				8586363F1E545D8C00FA8B76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		858636401E545D8C00FA8B76 /* Build configuration list for PBXNativeTarget "DWPayViewSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				858636411E545D8C00FA8B76 /* Debug */,
+				858636421E545D8C00FA8B76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		858636431E545D8C00FA8B76 /* Build configuration list for PBXNativeTarget "DWPayViewSwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				858636441E545D8C00FA8B76 /* Debug */,
+				858636451E545D8C00FA8B76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8586360D1E545D8B00FA8B76 /* Project object */;
+}
