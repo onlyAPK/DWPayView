@@ -28,7 +28,7 @@
 }
 
 -(void)initContent{
-    self.backgroundColor = [UIColor greenColor];
+    
     
     banklistArray = [[NSArray alloc]init];
     

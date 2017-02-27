@@ -49,8 +49,10 @@
         NSNumber *number = [[NSNumber alloc] initWithInt:j];
         if ([arrM containsObject:number]) {
             i--;
+            NSLog(@"%d",i);
             continue;
         }
+        NSLog(@"he");
         [arrM addObject:number];
     }
     for (int k = 0; k<12; k++) {

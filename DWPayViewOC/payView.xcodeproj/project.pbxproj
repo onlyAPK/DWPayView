@@ -533,6 +533,7 @@
 				DEVELOPMENT_TEAM = 34543L89J8;
 				INFOPLIST_FILE = payView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = terrence.payView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
