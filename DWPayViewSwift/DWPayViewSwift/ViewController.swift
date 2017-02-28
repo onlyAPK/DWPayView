@@ -8,10 +8,12 @@
 
 import UIKit
 
-var gagag = DWPayView()
+
 
 class ViewController: UIViewController {
-
+    
+var gagag = DWPayView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

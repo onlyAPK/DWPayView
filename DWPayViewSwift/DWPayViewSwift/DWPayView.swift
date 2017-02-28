@@ -8,17 +8,15 @@
 
 import UIKit
 
-
-var payMethodDict = NSDictionary()
-let titleArray = ["支付方式","持卡人"]
-var scrollView = UIScrollView()
-var secondTitle = UILabel()
-var payMethodTableView = UITableView()
-var backBtn = UIButton()
-var enterPasswordView = DWEnterPasswordView()
-
 class DWPayView: UIView ,UITableViewDelegate,UITableViewDataSource,DWManageDataDelegate{
     
+    var payMethodDict = NSDictionary()
+    let titleArray = ["支付方式","持卡人"]
+    var scrollView = UIScrollView()
+    var secondTitle = UILabel()
+    var payMethodTableView = UITableView()
+    var backBtn = UIButton()
+    var enterPasswordView = DWEnterPasswordView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -161,11 +159,11 @@ class DWPayView: UIView ,UITableViewDelegate,UITableViewDataSource,DWManageDataD
         
         UIView.animate(withDuration: 0.3, animations: {
             self.alpha = 0.0
-            scrollView.frame = CGRect(x: 0, y: dwDEVICESCREENHEIGHT, width: dwDEVICESCREENWIDTH, height: dwSCROLLVIEWHEIGHT)
+            self.scrollView.frame = CGRect(x: 0, y: dwDEVICESCREENHEIGHT, width: dwDEVICESCREENWIDTH, height: dwSCROLLVIEWHEIGHT)
         }) { (finished) in
-            scrollView.setContentOffset(CGPoint(x:0,y:0), animated: false)
+            self.scrollView.setContentOffset(CGPoint(x:0,y:0), animated: false)
             self.removeFromSuperview()
-            scrollView.removeFromSuperview()
+            self.scrollView.removeFromSuperview()
             
             
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "finishPay"), object: nil)
@@ -247,8 +245,8 @@ class DWPayView: UIView ,UITableViewDelegate,UITableViewDataSource,DWManageDataD
         UIView.animate(withDuration: 0.3) {
             
             self.alpha = 1.0
-            backBtn.isEnabled = true;
-            scrollView.frame = CGRect(x: 0, y: dwDEVICESCREENHEIGHT - dwSCROLLVIEWHEIGHT, width: dwDEVICESCREENWIDTH, height: dwSCROLLVIEWHEIGHT)
+            self.backBtn.isEnabled = true;
+            self.scrollView.frame = CGRect(x: 0, y: dwDEVICESCREENHEIGHT - dwSCROLLVIEWHEIGHT, width: dwDEVICESCREENWIDTH, height: dwSCROLLVIEWHEIGHT)
             self.getInitPayBankInfo()
             
             

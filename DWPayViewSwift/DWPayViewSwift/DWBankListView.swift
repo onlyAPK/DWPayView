@@ -7,9 +7,11 @@
 //
 
 import UIKit
-var banklistArray = NSArray()
-let banklistTableView = UITableView()
+
 class DWBankListView: UIView ,UITableViewDataSource,UITableViewDelegate,DWManageDataDelegate{
+    
+    var banklistArray = NSArray()
+    let banklistTableView = UITableView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
