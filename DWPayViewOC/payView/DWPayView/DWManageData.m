@@ -53,12 +53,7 @@
     
     //模拟数据
     NSDictionary* dict = [[NSDictionary alloc]init];
-    if ([passWord isEqualToString:@"111111"]) {
-        dict  = @{@"result":@"success"};
-    }else  {
-        dict = @{@"result":@"fail"};
-    }
-    
+    dict = [passWord isEqualToString:@"111111"]?@{@"result":@"success"}:@{@"result":@"fail"};
     
     /*完成网络请求后，使用代理传参,在DWEnterPasswordView.m中回调，
      只需要传一个字典表示结果:

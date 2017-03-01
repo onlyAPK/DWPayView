@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger,DWStateDisplayType){
     DWStateDisplayTypeFailCross,     //白底打叉
     DWStateDisplayTypeFailCrossWithFullCoolor,//满色打叉
 };
+
 @interface DWStateView : UIView
 
 - (instancetype)initWithFrame:(CGRect)frame withType:(DWStateDisplayType)type withColor:(UIColor*)color;

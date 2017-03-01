@@ -28,27 +28,39 @@
         shapeLayer.strokeColor = color.CGColor;
         [self.layer addSublayer:shapeLayer];
         
-        if (type == DWStateDisplayTypeDrawCircle) {
-            [self drawCircle];
-        }else if (type == DWStateDisplayTypeAndroidLike){
-            
-            [self androidLike];
-        }else if (type == DWStateDisplayTypeArcCircle){
-            
-            [self arcCircle];
-        }else if (type == DWStateDisplayTypeSuccessTick){
-            
-            [self successTickWithColor:color];
-        }else if (type == DWStateDisplayTypeFailCross){
-            
-            [self failCrossWithColor:color];
-        }else if (type == DWStateDisplayTypeSuccessTickWithFullCoolor){
-            
-            [self successTickWithFullColor:color];
-        }else if (type == DWStateDisplayTypeFailCrossWithFullCoolor){
-            
-            [self failCrossWithFullColor:color];
+        switch (type) {
+            case DWStateDisplayTypeDrawCircle:
+                [self drawCircle];
+                break;
+                
+            case DWStateDisplayTypeAndroidLike:
+                [self androidLike];
+                break;
+                
+            case DWStateDisplayTypeArcCircle:
+                [self arcCircle];
+                break;
+                
+            case DWStateDisplayTypeSuccessTick:
+                [self successTickWithColor:color];
+                break;
+                
+            case DWStateDisplayTypeFailCross:
+                [self failCrossWithColor:color];
+                break;
+                
+            case DWStateDisplayTypeSuccessTickWithFullCoolor:
+                [self successTickWithFullColor:color];
+                break;
+                
+            case DWStateDisplayTypeFailCrossWithFullCoolor:
+                [self failCrossWithFullColor:color];
+                break;
+                
+            default:
+                break;
         }
+        
     }
     
     
